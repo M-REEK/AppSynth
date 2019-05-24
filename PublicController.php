@@ -40,6 +40,5 @@ class PublicController {
         unset($_SESSION['member']);
         $_SESSION['alert'] = "<div class='alert success'>Déconnexion réussie.</div>";
         header('Location: ' . BASE_URL . '/connexion');
-    }
-
+    } 
 }
