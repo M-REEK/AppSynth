@@ -19,6 +19,11 @@ function EntreprisesPage() {
         require 'pages/footer.php';
      
     }
+    function newConventionPage() {
+        require 'pages/header.php';
+        require 'pages/newConvention.php';
+        require 'pages/footer.php';
+    }
 function newEntreprisePage() {
         require 'pages/header.php';
         require 'pages/newEntreprise.php';

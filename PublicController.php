@@ -54,6 +54,13 @@ class PublicController {
      
     }
 
+        public function newConventionPage() {
+        require 'pages/header.php';
+        require 'pages/newConvention.php';
+        require 'pages/footer.php';
+    }
+
+
         public function newEntreprisePage() {
         require 'pages/header.php';
         require 'pages/newEntreprise.php';

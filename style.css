@@ -2,6 +2,7 @@
 /***** General ******/
 /********************/
 
+/*NIKE TA MERE  ceci est un test */
 
 *, :after, ::before {
     box-sizing: border-box;
@@ -17,16 +18,17 @@ body {
     background-color: rgb(186, 200, 247);
 }
 main {
-    flex: 1 1 auto;
+    flex: 1 auto;
     display: flex;
     justify-content: center;
 }
 .home{
-    flex: 1 1 auto;
+    flex: 1 auto;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
 }
+
 .alert {
     text-align: center;
     text-transform: uppercase;
@@ -193,13 +195,32 @@ a{
 }
 
 nav li i{
-color: white;
+color: orange;
 margin-right: 1.5rem;
 width: 2rem;
 height: auto;
 }
 
 /********************/
-/** New Entreprise **/
+/** Page newConnexion **/
 /********************/
+.newConvention{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
+#convention{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+#convention .form{
+  margin-top: 1.3rem;
+}
+
+#convention .form input{
+  margin-left: 1rem;
+}
