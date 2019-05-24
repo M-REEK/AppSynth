@@ -41,4 +41,22 @@ class PublicController {
         $_SESSION['alert'] = "<div class='alert success'>Déconnexion réussie.</div>";
         header('Location: ' . BASE_URL . '/connexion');
     } 
+        public function EntreprisesPage() {
+
+        require 'Manager.php';
+        $manager=new Manager();
+        $req=$manager->dbConnect();
+        $allEntreprises=$req->query('Select * from table_client');
+
+        require 'pages/header.php';
+        require 'pages/entreprises.php';
+        require 'pages/footer.php';
+     
+    }
+
+        public function newEntreprisePage() {
+        require 'pages/header.php';
+        require 'pages/newEntreprise.php';
+        require 'pages/footer.php';
+    }
 }

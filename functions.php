@@ -13,3 +13,15 @@ function connexionPage() {
     require 'pages/connexion.php';
     require 'pages/footer.php';
 }
+function EntreprisesPage() {
+        require 'pages/header.php';
+        require 'pages/entreprises.php';
+        require 'pages/footer.php';
+     
+    }
+function newEntreprisePage() {
+        require 'pages/header.php';
+        require 'pages/newEntreprise.php';
+        require 'pages/footer.php';
+    }
+?>

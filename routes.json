@@ -13,5 +13,15 @@
         "path": "/deconnexion",
         "run": "deconnexion",
         "from": "PublicController"
+    },
+        "entreprises": {
+        "path": "/entreprises",
+        "run": "entreprisesPage",
+        "from": "PublicController"
+    },
+        "newEntreprise": {
+        "path": "/newEntreprise",
+        "run": "newEntreprisePage",
+        "from": "PublicController"
     }
 }
