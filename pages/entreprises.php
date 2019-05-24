@@ -1,5 +1,6 @@
-<main>
     <?php require 'menu.php' ?>
+<main>
+
     <section>
         <p>Ajouter une entreprise <i class="fas fa-plus-circle"></i></p>
         <div>Trier par: numéro / date croissante / date décroissante / montant réglé / </div>

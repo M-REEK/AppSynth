@@ -2,7 +2,6 @@
 /***** General ******/
 /********************/
 
-/*NIKE TA MERE  ceci est un test */
 
 *, :after, ::before {
     box-sizing: border-box;
@@ -168,6 +167,7 @@ flex-direction: column;
 background-color: #A5AEFF;
 border-radius: 0.2rem;
 position: fixed;
+margin-top: 6rem;
 }
 nav ul{
   padding: 0;
@@ -193,8 +193,13 @@ a{
 }
 
 nav li i{
-color: orange;
+color: white;
 margin-right: 1.5rem;
 width: 2rem;
 height: auto;
 }
+
+/********************/
+/** New Entreprise **/
+/********************/
+

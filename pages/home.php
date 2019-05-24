@@ -1,8 +1,8 @@
-
-  <main class="home">
 <?php
   require 'menu.php';
 ?>
+  <main class="home">
+
             <div id="MenuHome">
                   <div class="ItemHome">
                       <p>Créer une nouvelle convention</p>
