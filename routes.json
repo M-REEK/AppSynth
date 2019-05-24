@@ -1,0 +1,17 @@
+{
+    "home": {
+        "path": "/",
+        "run": "homePage",
+        "from": "PublicController"
+    },
+    "connexion": {
+        "path": "/connexion",
+        "run": "connexionPage",
+        "from": "PublicController"
+    },
+    "deconnexion": {
+        "path": "/deconnexion",
+        "run": "deconnexion",
+        "from": "PublicController"
+    }
+}

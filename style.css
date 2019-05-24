@@ -1,0 +1,200 @@
+/********************/
+/***** General ******/
+/********************/
+
+/*NIKE TA MERE  ceci est un test */
+
+*, :after, ::before {
+    box-sizing: border-box;
+}
+html {
+    font: 400 16px/1.5 sans-serif;
+}
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(186, 200, 247);
+}
+main {
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: center;
+}
+.home{
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.alert {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 1rem;
+    box-shadow: 1px 1px 3px 1px black;
+    font-size: 1.5rem;
+    margin: 1rem auto;
+    width: 90%
+}
+.error {
+    background-color: rgba(242, 24, 24, 0.6);
+}
+.info {
+    background-color: rgba(127, 172, 244, 0.6);
+}
+.success {
+    background-color: rgba(103, 229, 94, 0.6);
+}
+
+/********************/
+/****** Header ******/
+/********************/
+#main-title {
+    text-transform: uppercase;
+    background-color: black;
+    color: white;
+    text-align: center;
+    position: relative;
+}
+#main-title a {
+    text-decoration: none;
+    color: white;
+    position: absolute;
+    right: 1rem;
+}
+#welcome-message {
+    font-size: 1.5rem;
+    margin: 0 auto;
+    text-align: center;
+}
+#welcome-message ~ p {
+    text-align: center;
+}
+/********************/
+/** Connexion Page **/
+/********************/
+.main-connexion {
+    border: 2px solid rgb(45, 176, 219);
+    width: 30rem;
+    height: 15rem;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5rem;
+}
+.form-connexion {
+    text-align: center;
+}
+.form-connexion div {
+    display: flex;
+    margin: 1rem;
+}
+.form-connexion label {
+    text-align: right;
+    flex: 1;
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+.form-connexion span {
+    display: block;
+    width: 2rem;
+}
+.form-connexion input {
+    flex: 1;
+    text-align: left;
+    font-size: 1.25rem;
+    padding: 0.25rem;
+    background-color: rgb(186, 200, 247);
+    border: none;
+}
+.form-connexion button {
+    background-color: rgb(172, 248, 172);
+    border: 1px solid black;;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1.25rem;
+    margin: 2rem auto 0 auto;
+    cursor: pointer;
+}
+.main-connexion > p {
+    font-size: .8rem;
+    font-style: italic;
+}
+/********************/
+/****** Footer ******/
+/********************/
+footer p {
+    text-align: center;
+}
+
+/********************/
+/** Home Page **/
+/********************/
+#MenuHome{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+}
+.ItemHome{
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+}
+
+.ItemHome:hover{
+  text-decoration: underline;
+}
+
+.ItemHome i{
+  color: green;
+  width: 2rem;
+  margin-left: 1rem;
+}
+
+/********************/
+/** Nav **/
+/********************/
+
+nav {
+display: flex;
+flex-direction: column;
+background-color: #A5AEFF;
+border-radius: 0.2rem;
+position: fixed;
+}
+nav ul{
+  padding: 0;
+  margin: 0;
+  border-radius: 0.2rem;
+}
+nav li:hover{
+  background-color: #848AFF;
+}
+
+nav li{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 1.5rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  border-radius: 0.2rem;
+}
+a{
+  text-decoration: none;
+  color: black;
+}
+
+nav li i{
+color: orange;
+margin-right: 1.5rem;
+width: 2rem;
+height: auto;
+}
