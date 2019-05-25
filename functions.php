@@ -19,6 +19,12 @@ function EntreprisesPage() {
         require 'pages/footer.php';
      
     }
+function EtudiantsPage() {
+        require 'pages/header.php';
+        require 'pages/etudiants.php';
+        require 'pages/footer.php';
+     
+    }
     function newConventionPage() {
         require 'pages/header.php';
         require 'pages/newConvention.php';

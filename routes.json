@@ -19,6 +19,11 @@
         "run": "entreprisesPage",
         "from": "PublicController"
     },
+            "etudiants": {
+        "path": "/etudiants",
+        "run": "etudiantsPage",
+        "from": "PublicController"
+    },
         "newEntreprise": {
         "path": "/newEntreprise",
         "run": "newEntreprisePage",

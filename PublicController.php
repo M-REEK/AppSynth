@@ -54,6 +54,18 @@ class PublicController {
      
     }
 
+   public  function EtudiantsPage() {
+        require 'Manager.php';
+        $manager=new Manager();
+        $req=$manager->dbConnect();
+        $allEtudiants=$req->query('Select * from table_etudiant');
+
+        require 'pages/header.php';
+        require 'pages/etudiants.php';
+        require 'pages/footer.php';
+     
+    }
+
         public function newConventionPage() {
         require 'pages/header.php';
         require 'pages/newConvention.php';
