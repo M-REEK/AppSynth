@@ -8,7 +8,7 @@ class PublicController {
             header('Location: ' . BASE_URL . '/connexion');     
         }
     }
-    
+
     public function homePage() {
         $title = "Accueil";
         require 'pages/header.php';

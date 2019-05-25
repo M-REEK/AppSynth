@@ -1,6 +1,6 @@
 {
     "home": {
-        "path": "/",
+        "path": "/accueil",
         "run": "homePage",
         "from": "PublicController"
     },

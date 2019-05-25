@@ -1,6 +1,6 @@
 <nav>
   <ul>
-    <a href="#"><li>
+    <a href="accueil"><li>
       <i class="fas fa-home"></i>
       <p>Accueil</p>
     </li></a>
@@ -8,11 +8,11 @@
       <i class="fas fa-handshake"></i>
       <p>Conventions</p>
     </li></a>
-    <a href="#"><li>
+    <a href="entreprises"><li>
       <i class="fas fa-industry"></i>
       <p>Entreprises</p>
     </li></a>
-    <a href="#"><li>
+    <a href="etudiants"><li>
       <i class="fas fa-user-graduate"></i>
       <p>Etudiants</p>
     </li></a>
