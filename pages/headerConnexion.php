@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous" />
     </head>
 <body>
+    <?= isset($_SESSION['alert']) ? $_SESSION['alert'] : '' ?>
     <header>
         <h1 id="main-title">Junior Entreprise</h1>
         <div>
@@ -16,4 +17,3 @@
             <p>Veuillez vous connecter</p>
         </div>
     </header>
-    <?= isset($_SESSION['alert']) ? $_SESSION['alert'] : '' ?>

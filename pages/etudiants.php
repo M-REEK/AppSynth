@@ -1,6 +1,5 @@
-    <?php require 'menu.php' ?>
+<?php require 'menu.php' ?>
 <main>
-
     <section>
         <p>Ajouter un etudiant <i class="fas fa-plus-circle"></i></p>
         <div>Trier par: numéro etudiant / nom / nombre convention signé / </div>

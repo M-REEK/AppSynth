@@ -46,7 +46,7 @@ class PublicController {
         require 'Manager.php';
         $manager = new Manager();
         $req = $manager->dbConnect();
-        $allEntreprises=$req->query('Select * from table_client');
+        $allEntreprises = $req->query('SELECT * FROM table_client');
         require 'pages/header.php';
         require 'pages/entreprises.php';
         require 'pages/footer.php';
@@ -56,7 +56,7 @@ class PublicController {
         require 'Manager.php';
         $manager = new Manager();
         $req = $manager->dbConnect();
-        $allEtudiants = $req->query('Select * from table_etudiant');
+        $allEtudiants = $req->query('SELECT * FROM table_etudiant');
         require 'pages/header.php';
         require 'pages/etudiants.php';
         require 'pages/footer.php';

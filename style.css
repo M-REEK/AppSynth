@@ -134,9 +134,9 @@ footer p {
 }
 
 /********************/
-/** Home Page **/
+/**** Home Page *****/
 /********************/
-#MenuHome {
+#menu-home {
 	flex: 1;
 	display: flex;
 	flex-direction: column;
@@ -144,22 +144,19 @@ footer p {
   	align-items: center;
   	margin-top: 5rem;
 }
-.ItemHome {
+.item-home {
 	display: flex;
   	align-items: center;
   	font-size: 1.5rem;
 }
-
-.ItemHome:hover {
+.item-home:hover {
   	text-decoration: underline;
 }
-
-.ItemHome i {
+.item-home i {
   	color: green;
   	width: 2rem;
   	margin-left: 1rem;
 }
-
 /********************/
 /******* Nav ********/
 /********************/
@@ -205,7 +202,6 @@ nav li i {
 	justify-content: center;
 	align-items: center;
 }
-
 #convention {
 	display: flex;
 	flex-direction: column;
@@ -215,9 +211,6 @@ nav li i {
 #convention .form {
   	margin-top: 1.3rem;
 }
-
 #convention .form input {
  	margin-left: 1rem;
 }
-
-
