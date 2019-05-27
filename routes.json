@@ -14,17 +14,17 @@
         "run": "deconnexion",
         "from": "PublicController"
     },
-        "entreprises": {
+    "entreprises": {
         "path": "/entreprises",
         "run": "entreprisesPage",
         "from": "PublicController"
     },
-            "etudiants": {
+    "etudiants": {
         "path": "/etudiants",
         "run": "etudiantsPage",
         "from": "PublicController"
     },
-        "newEntreprise": {
+    "newEntreprise": {
         "path": "/newEntreprise",
         "run": "newEntreprisePage",
         "from": "PublicController"

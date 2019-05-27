@@ -2,9 +2,6 @@
 /***** General ******/
 /********************/
 
-/*NIKE TA MERE  ceci est un test  ta grosse mèèèèèèèèèèèèèèèèèèèèèèè
-èèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèèè*/
-
 *, :after, ::before {
     box-sizing: border-box;
 }
@@ -29,7 +26,6 @@ main {
     justify-content: flex-start;
     align-items: flex-start;
 }
-
 .alert {
     text-align: center;
     text-transform: uppercase;
@@ -48,6 +44,10 @@ main {
 }
 .success {
     background-color: rgba(103, 229, 94, 0.6);
+}
+a {
+	text-decoration: none;
+	color: black;
 }
 
 /********************/
@@ -136,94 +136,88 @@ footer p {
 /********************/
 /** Home Page **/
 /********************/
-#MenuHome{
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 5rem;
+#MenuHome {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+  	justify-content: center;
+  	align-items: center;
+  	margin-top: 5rem;
 }
-.ItemHome{
-  display: flex;
-  align-items: center;
-  font-size: 1.5rem;
-}
-
-.ItemHome:hover{
-  text-decoration: underline;
+.ItemHome {
+	display: flex;
+  	align-items: center;
+  	font-size: 1.5rem;
 }
 
-.ItemHome i{
-  color: green;
-  width: 2rem;
-  margin-left: 1rem;
+.ItemHome:hover {
+  	text-decoration: underline;
+}
+
+.ItemHome i {
+  	color: green;
+  	width: 2rem;
+  	margin-left: 1rem;
 }
 
 /********************/
-/** Nav **/
+/******* Nav ********/
 /********************/
 
 nav {
-display: flex;
-flex-direction: column;
-background-color: #A5AEFF;
-border-radius: 0.2rem;
-position: fixed;
-margin-top: 6rem;
+	display: flex;
+	flex-direction: column;
+	background-color: #A5AEFF;
+	border-radius: 0.2rem;
+	position: fixed;
+	margin-top: 6rem;
 }
 nav ul{
-  padding: 0;
-  margin: 0;
-  border-radius: 0.2rem;
+  	padding: 0;
+  	margin: 0;
+  	border-radius: 0.2rem;
 }
-nav li:hover{
-  background-color: #848AFF;
+nav li:hover {
+  	background-color: #848AFF;
 }
-
-nav li{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  font-size: 1.5rem;
-  padding-right: 1rem;
-  padding-left: 1rem;
-  border-radius: 0.2rem;
+nav li {
+  	display: flex;
+  	flex-direction: row;
+  	align-items: center;
+  	font-size: 1.5rem;
+  	padding-right: 1rem;
+  	padding-left: 1rem;
+  	border-radius: 0.2rem;
 }
-a{
-  text-decoration: none;
-  color: black;
-}
-
-nav li i{
-color: orange;
-margin-right: 1.5rem;
-width: 2rem;
-height: auto;
+nav li i {
+	color: orange;
+	margin-right: 1.5rem;
+	width: 2rem;
+	height: auto;
 }
 
 /********************/
 /** Page newConnexion **/
 /********************/
-.newConvention{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.newConvention {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
-#convention{
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
+#convention {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
 }
-#convention .form{
-  margin-top: 1.3rem;
+#convention .form {
+  	margin-top: 1.3rem;
 }
 
-#convention .form input{
-  margin-left: 1rem;
+#convention .form input {
+ 	margin-left: 1rem;
 }
 
 

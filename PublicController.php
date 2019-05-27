@@ -27,7 +27,7 @@ class PublicController {
                 $password = trim($_POST['password']);
                 if ($pseudo == "paulin" && $password == "lol") {
                     $_SESSION['member'] = $pseudo;
-                    header('Location: ' . BASE_URL . '/');
+                    header('Location: ' . BASE_URL . '/accueil');
                 }
             }
         }
@@ -40,40 +40,35 @@ class PublicController {
         unset($_SESSION['member']);
         $_SESSION['alert'] = "<div class='alert success'>Déconnexion réussie.</div>";
         header('Location: ' . BASE_URL . '/connexion');
-    } 
-        public function EntreprisesPage() {
+    }
 
+    public function entreprisesPage() {
         require 'Manager.php';
-        $manager=new Manager();
-        $req=$manager->dbConnect();
+        $manager = new Manager();
+        $req = $manager->dbConnect();
         $allEntreprises=$req->query('Select * from table_client');
-
         require 'pages/header.php';
         require 'pages/entreprises.php';
         require 'pages/footer.php';
-     
     }
 
-   public  function EtudiantsPage() {
+    public  function etudiantsPage() {
         require 'Manager.php';
-        $manager=new Manager();
-        $req=$manager->dbConnect();
-        $allEtudiants=$req->query('Select * from table_etudiant');
-
+        $manager = new Manager();
+        $req = $manager->dbConnect();
+        $allEtudiants = $req->query('Select * from table_etudiant');
         require 'pages/header.php';
         require 'pages/etudiants.php';
         require 'pages/footer.php';
-     
     }
 
-        public function newConventionPage() {
+    public function newConventionPage() {
         require 'pages/header.php';
         require 'pages/newConvention.php';
         require 'pages/footer.php';
     }
 
-
-        public function newEntreprisePage() {
+    public function newEntreprisePage() {
         require 'pages/header.php';
         require 'pages/newEntreprise.php';
         require 'pages/footer.php';
