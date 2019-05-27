@@ -15,6 +15,11 @@ $url = $_SERVER['REQUEST_URI'];
 $url = str_replace('/AppliSynth', '', $url);
 $url = strtok($url, '?');
 
+if ($url == "/") {
+    header('Location: ' . BASE_URL . $routes['home']['path']);
+    exit();
+}
+
 // searching if there is a match between the url and the available routes
 foreach ($routes as $key => $values) {
     if ($url == $values["path"]) {
