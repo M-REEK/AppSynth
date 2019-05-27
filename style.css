@@ -97,16 +97,16 @@ a {
 }
 .form-connexion label {
     text-align: right;
-    flex: 1;
     font-weight: bold;
     font-size: 1.25rem;
+    width: 8rem;
 }
 .form-connexion span {
     display: block;
     width: 2rem;
 }
 .form-connexion input {
-    flex: 1;
+    flex: 1 1 auto;
     text-align: left;
     font-size: 1.25rem;
     padding: 0.25rem;
