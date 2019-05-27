@@ -43,6 +43,7 @@ class PublicController {
     }
 
     public function entreprisesPage() {
+        $title = "Entreprises";
         require 'Manager.php';
         $manager = new Manager();
         $req = $manager->dbConnect();
@@ -53,6 +54,7 @@ class PublicController {
     }
 
     public  function etudiantsPage() {
+        $title = "Etudiants";
         require 'Manager.php';
         $manager = new Manager();
         $req = $manager->dbConnect();
@@ -63,12 +65,14 @@ class PublicController {
     }
 
     public function newConventionPage() {
+        $title = "Nouvelle convention";
         require 'pages/header.php';
         require 'pages/newConvention.php';
         require 'pages/footer.php';
     }
 
     public function newEntreprisePage() {
+        $title = "Nouvelle entreprise";
         require 'pages/header.php';
         require 'pages/newEntreprise.php';
         require 'pages/footer.php';
