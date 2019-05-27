@@ -25,12 +25,12 @@
         "from": "PublicController"
     },
     "newEntreprise": {
-        "path": "/newEntreprise",
+        "path": "/nouvelle-entreprise",
         "run": "newEntreprisePage",
         "from": "PublicController"
     },
     "newConvention": {
-        "path": "/newConvention",
+        "path": "/nouvelle-convention",
         "run": "newConventionPage",
         "from": "PublicController"
     }
