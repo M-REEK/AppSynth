@@ -167,7 +167,7 @@ nav {
 	background-color: #A5AEFF;
 	border-radius: 0.2rem;
 	position: fixed;
-	margin-top: 6rem;
+	top: 25vh;
 }
 nav ul{
   	padding: 0;
