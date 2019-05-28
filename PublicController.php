@@ -21,12 +21,29 @@ class PublicController {
             header('Location: ' . BASE_URL . '/');
         }
         $title = "Connexion";
+        require 'Manager.php';
+        $manager = new Manager();
         if (!empty($_POST)) {
             if (!empty(trim($_POST['login'])) && !empty(trim($_POST['password']))) {
                 $pseudo = trim($_POST['login']);
                 $password = trim($_POST['password']);
-                if ($pseudo == "paulin" && $password == "lol") {
-                    $_SESSION['member'] = $pseudo;
+                if ($pseudo == 'admin') {
+                    $req = $manager->dbConnect()->prepare('SELECT * FROM table_utilisateur_admin WHERE login = ?');
+                } else {
+                    $req = $manager->dbConnect()->prepare('SELECT * FROM table_utilisateur_etudiant WHERE login = ?');
+                }
+                $user = $req->execute([$pseudo]);
+                $user = $req->fetch();
+                if (password_verify($password, $user['mdp'])) {
+                    unset($_SESSION['member']);
+                    $_SESSION['member'] = [
+                        'pseudo' => $user['login']
+                    ];
+                    if ($user['login'] == 'admin') {
+                        $_SESSION['member']['role'] = 'admin';
+                    } else {
+                        $_SESSION['member']['role'] = 'etudiant';
+                    }
                     header('Location: ' . BASE_URL . '/accueil');
                 }
             }
