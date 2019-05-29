@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous" />
     </head>
 <body>
+    <?= isset($_SESSION['alert']) ? $_SESSION['alert'] : '' ?>
     <header>
         <h1 id="main-title">Junior Entreprise <a href="<?= BASE_URL . '/deconnexion' ?>" title="Se déconnecter"><i class="fas fa-power-off"></i></a></h1>
         <div>
@@ -16,4 +17,4 @@
             <p>Compte : <?= ucfirst($_SESSION['member']['pseudo']) ?></p>
         </div>
     </header>
-    <?= isset($_SESSION['alert']) ? $_SESSION['alert'] : '' ?>
+    <div id="site-main">

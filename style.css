@@ -15,16 +15,14 @@ body {
     flex-direction: column;
     background-color: rgb(186, 200, 247);
 }
+#site-main {
+    display: flex;
+    flex: 1 1 auto;
+}
 main {
-    flex: 1 auto;
+    flex: 1 1 auto;
     display: flex;
     justify-content: center;
-}
-.home{
-    flex: 1 auto;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
 }
 .alert {
     text-align: center;
@@ -137,20 +135,17 @@ footer p {
 /********************/
 /**** Home Page *****/
 /********************/
-#menu-home {
-	flex: 1;
-	display: flex;
+.home{
+    flex: 1 1 auto;
+    display: flex;
 	flex-direction: column;
   	justify-content: center;
-  	align-items: center;
-  	margin-top: 5rem;
 }
 .item-home {
-	display: flex;
-  	align-items: center;
-  	font-size: 1.5rem;
+    font-size: 1.5rem;
+    margin: 1.5rem auto;
 }
-.item-home:hover {
+.item-home a:hover {
   	text-decoration: underline;
 }
 .item-home i {
@@ -161,19 +156,12 @@ footer p {
 /********************/
 /******* Nav ********/
 /********************/
-
 nav {
-	display: flex;
-	flex-direction: column;
 	background-color: #A5AEFF;
-	border-radius: 0.2rem;
-	position: fixed;
-	top: 25vh;
 }
-nav ul{
+nav ul {
   	padding: 0;
   	margin: 0;
-  	border-radius: 0.2rem;
 }
 nav li:hover {
   	background-color: #848AFF;
@@ -185,15 +173,12 @@ nav li {
   	font-size: 1.5rem;
   	padding-right: 1rem;
   	padding-left: 1rem;
-  	border-radius: 0.2rem;
 }
 nav li i {
 	color: orange;
 	margin-right: 1.5rem;
 	width: 2rem;
-	height: auto;
 }
-
 /********************/
 /** Page newConnexion **/
 /********************/

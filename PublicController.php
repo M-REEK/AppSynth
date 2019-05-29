@@ -45,6 +45,8 @@ class PublicController {
                         $_SESSION['member']['role'] = 'etudiant';
                     }
                     header('Location: ' . BASE_URL . '/accueil');
+                } else {
+                    $_SESSION['alert'] = "<div class='alert error'>Identifiants incorrects.</div>";
                 }
             }
         }

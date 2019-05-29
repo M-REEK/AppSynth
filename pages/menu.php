@@ -1,40 +1,10 @@
 <nav>
 	<ul>
-		<a href="accueil">
-			<li>
-				<i class="fas fa-home"></i>
-				<p>Accueil</p>
-			</li>
-		</a>
-		<a href="#">
-			<li>
-				<i class="fas fa-handshake"></i>
-				<p>Conventions</p>
-			</li>
-		</a>
-		<a href="entreprises">
-			<li>
-				<i class="fas fa-industry"></i>
-				<p>Entreprises</p>
-			</li>
-		</a>
-		<a href="etudiants">
-			<li>
-				<i class="fas fa-user-graduate"></i>
-				<p>Etudiants</p>
-			</li>
-		</a>
-		<a href="#">
-			<li>
-				<i class="fas fa-file-invoice-dollar"></i>
-				<p>Facturation</p>
-			</li>
-		</a>
-		<a href="#">
-			<li>
-				<i class="fas fa-cog"></i>
-				<p>Paramètres</p>
-			</li>
-		</a>
+		<li><a href="accueil"><i class="fas fa-home"></i> Accueil</a></li>
+		<li><a href="#"><i class="fas fa-handshake"></i> Conventions</a></li>
+		<li><a href="entreprises"><i class="fas fa-industry"></i> Entreprises</a></li>
+		<li><a href="etudiants"><i class="fas fa-user-graduate"></i> Etudiants</a></li>
+		<li><a href="#"><i class="fas fa-file-invoice-dollar"></i> Facturation</a></li>
+		<li><a href="#"><i class="fas fa-cog"></i> Paramètres</a></li>
 	</ul>
 </nav>
