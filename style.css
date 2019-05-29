@@ -73,6 +73,7 @@ a {
 }
 #welcome-message ~ p {
     text-align: center;
+    font-size: 1.25rem;
 }
 /********************/
 /** Connexion Page **/

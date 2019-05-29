@@ -13,7 +13,7 @@
         <h1 id="main-title">Junior Entreprise <a href="<?= BASE_URL . '/deconnexion' ?>" title="Se déconnecter"><i class="fas fa-power-off"></i></a></h1>
         <div>
             <p id="welcome-message">Bienvenue sur Junior Entreprise</p>
-            <p><?= $_SESSION['member']['pseudo'] ?></p>
+            <p>Compte : <?= ucfirst($_SESSION['member']['pseudo']) ?></p>
         </div>
     </header>
     <?= isset($_SESSION['alert']) ? $_SESSION['alert'] : '' ?>
