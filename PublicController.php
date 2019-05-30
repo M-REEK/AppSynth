@@ -141,7 +141,7 @@ class PublicController {
         require 'pages/header.php';
         require 'pages/parametre.php';
         require 'pages/footer.php';
- 
+    
 }
     public function newEtudiantPage() {
 
