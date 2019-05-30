@@ -200,11 +200,10 @@ nav a i {
 /********************/
 /** Page entreprise **/
 /********************/
-
-section>p{
+.Listes > p{
   font-size: 1.5rem;
 }
-section>p i{
+.Listes > p i{
   color: green;
 }
 
@@ -233,7 +232,6 @@ section>p i{
   justify-content: center;
   align-items: center;
   margin:0.5rem;
-
 }
 
 .listeEntreprises div:nth-child(2) div a{
@@ -280,4 +278,56 @@ section>p i{
   padding-right: 0.5rem;
   padding-top: 0.10rem;
   padding-bottom: 0.10rem;
+}
+
+/********************/
+/** Page etudiants **/
+/********************/
+
+.etudiant{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border-style: solid;
+  margin-top: 2rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-style: solid;
+  border-radius: 1rem;
+  border-width: 0.05rem;
+  padding-left: : 1rem;
+  padding-right: 1rem;
+  background-color: #D2D8FE;
+}
+.etudiant div:nth-child(1) p{
+  display: flex;
+  justify-content: flex-start;
+}
+.etudiant div:nth-child(1) p span{
+  margin-right: 3rem;
+}
+.etudiant div:nth-child(1) p span:last-child{
+  margin-left: 3rem;
+}
+.etudiant div:nth-child(2){
+  margin-left: 2rem;
+}
+.etudiant div:nth-child(3){
+  display: flex;
+}
+.etudiant div:nth-child(3) i{
+  border-radius: 5rem;
+  height: 2rem;
+  width: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin:0.5rem;
+}
+
+.etudiant div:nth-child(3) a:nth-child(1) i{
+  background-color: #4F61FF;
+}
+.etudiant div:nth-child(3) a:nth-child(2) i{
+  background-color: #AAB2FF;
 }
