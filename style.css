@@ -196,3 +196,42 @@ nav a i {
 #convention .form input {
  	margin-left: 1rem;
 }
+
+
+/********************/
+/** Page parametre**/
+/********************/
+.parametre {
+    display: flex;
+    /*flex-direction: column;
+    justify-content: center;
+    align-items: center;*/
+    margin-top: 5rem;
+}
+
+.parametre h1 {
+    text-align: center;
+    font-size: 2em;   
+}
+
+#form p{
+    background: grey;
+    display: flex;
+    margin-bottom: 1.5rem;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+#form .form label {
+    margin-left: 2rem;
+}
+/*div:nth-child(2) span:nth-child(1) {
+    margin-left: 2rem;
+}
+
+div:nth-child(2) span:nth-child(2) {
+    float: right;
+}
+*/

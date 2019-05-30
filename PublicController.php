@@ -96,4 +96,19 @@ class PublicController {
         require 'pages/newEntreprise.php';
         require 'pages/footer.php';
     }
+
+    public function parametrePage() {
+        $title = "Parametres";
+        require 'Manager.php';
+        $manager = new Manager();
+        $req = $manager->dbConnect();
+        if (($test = $_SESSION['member']['pseudo']) == 'admin') {
+            $req = $manager->dbConnect()->prepare('SELECT * FROM table_utilisateur_admin WHERE login = ?');
+        }
+        $user = $req->execute([$test]);
+        $user = $req->fetch();
+        require 'pages/header.php';
+        require 'pages/parametre.php';
+        require 'pages/footer.php';
+    }
 }
