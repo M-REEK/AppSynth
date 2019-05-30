@@ -92,6 +92,32 @@ class PublicController {
 
     public function newEntreprisePage() {
         $title = "Nouvelle entreprise";
+        require 'Manager.php';
+        $manager = new Manager();
+         if (!empty($_POST)) 
+         {
+            if (!empty(trim($_POST['num_ent'])) && !empty(trim($_POST['nom_ent'])) && !empty(trim($_POST['num_siren_ent'])) && !empty(trim($_POST['adresse_ent'])) && !empty(trim($_POST['CP_ent'])) && !empty(trim($_POST['telephone_ent'])) && !empty(trim($_POST['email_ent'])))
+            {
+                $nom = trim($_POST['nom_ent']);
+                $siren = trim($_POST['num_siren_ent']);
+                $numEnt = trim($_POST['num_ent']);
+                $adresse = trim($_POST['adresse_ent']);
+                $CP = trim($_POST['CP_ent']);
+                $telephone = trim($_POST['telephone_ent']);
+                $email = trim($_POST['email_ent']);
+                foreach($_POST['indice_confiance'] as $valeur)
+                {
+                   $confiance=$valeur;
+                }
+                $req_ent = $manager->dbConnect()->prepare('INSERT INTO table_client (`nom_societe`,`num_siren`,`email`,`adresse`,`code postal`,`indice_confiance`,`telephone`) VALUES (?,?,?,?,?,?,?)');
+                $req_ent->execute(array($nom,$siren,$email,$adresse,$CP,$confiance,$telephone));
+            }
+
+            else
+            {
+                 $_SESSION['alert'] = "<div class='alert error'>Veuillez remplir tous les champs</div>";
+            }
+        }
         require 'pages/header.php';
         require 'pages/newEntreprise.php';
         require 'pages/footer.php';
