@@ -197,3 +197,183 @@ nav a i {
 #convention .form input {
  	margin-left: 1rem;
 }
+
+
+/********************/
+/** Page entreprise **/
+/********************/
+.Listes > p{
+  font-size: 1.5rem;
+}
+.Listes > p i{
+  color: green;
+}
+
+.listeEntreprises{
+  display: flex;
+  flex-direction: column;
+  margin-top: 4rem;
+  border-style: solid;
+  border-radius: 1rem;
+  border-width: 0.05rem;
+  padding: 1rem;
+  background-color: #D2D8FE;
+}
+
+.listeEntreprises div:nth-child(2){
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.listeEntreprises div:nth-child(2) div i{
+  border-radius: 5rem;
+  height: 2rem;
+  width: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin:0.5rem;
+}
+
+.listeEntreprises div:nth-child(2) div a{
+  margin: 0.5rem;
+}
+
+.listeEntreprises div:nth-child(2) div a:nth-child(1) i{
+  background-color: #4F61FF;
+}
+.listeEntreprises div:nth-child(2) div a:nth-child(2) i{
+  background-color: #AAB2FF;
+}
+
+.listeEntreprises div:nth-child(1) p span{
+  margin-right: 1rem;
+}
+
+.listeEntreprises div:nth-child(1) p:nth-child(1){
+  display: inline;
+  justify-content: space-between;
+}
+
+.listeEntreprises div:nth-child(1) p:nth-child(1) span:nth-child(3){
+  color: red;
+  margin-left: 7rem;
+}
+
+.listeEntreprises div:nth-child(2) div{
+  display: flex;
+  margin-left: 1rem;
+}
+
+.listeEntreprises div:nth-child(2) div:nth-child(2){
+  background-color: #87FFDD;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-top: 0.10rem;
+  padding-bottom: 0.10rem;
+}
+
+.listeEntreprises div:nth-child(2) div:nth-child(3){
+  background-color: #FF8275;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-top: 0.10rem;
+  padding-bottom: 0.10rem;
+}
+
+/********************/
+/** Page etudiants **/
+/********************/
+
+.etudiant{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border-style: solid;
+  margin-top: 2rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-style: solid;
+  border-radius: 1rem;
+  border-width: 0.05rem;
+  padding-left: : 1rem;
+  padding-right: 1rem;
+  background-color: #D2D8FE;
+  width: auto;
+}
+.etudiant div:nth-child(1) p{
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 0.2;
+}
+.etudiant div:nth-child(1) p span{
+  margin-right: 3rem;
+}
+.etudiant div:nth-child(1) p span:last-child{
+  margin-left: 3rem;
+}
+.etudiant div:nth-child(2){
+  margin-left: 2rem;
+}
+.etudiant div:nth-child(2) p{
+  margin: 0.2rem;
+}
+.etudiant div:nth-child(3){
+  display: flex;
+}
+.etudiant div:nth-child(3) i{
+  border-radius: 5rem;
+  height: 2rem;
+  width: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin:0.5rem;
+}
+
+.etudiant div:nth-child(3) a:nth-child(1) i{
+  background-color: #4F61FF;
+}
+.etudiant div:nth-child(3) a:nth-child(2) i{
+  background-color: #AAB2FF;
+}
+=======
+
+/********************/
+/** Page parametre**/
+/********************/
+.parametre {
+    display: flex;
+    /*flex-direction: column;
+    justify-content: center;
+    align-items: center;*/
+    margin-top: 5rem;
+}
+
+.parametre h1 {
+    text-align: center;
+    font-size: 2em;   
+}
+
+#param .form {
+    background: grey;
+    display: flex;
+    margin-bottom: 1.5rem;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+#param .form label {
+    margin-left: 2rem;
+}
+/*div:nth-child(2) span:nth-child(1) {
+    margin-left: 2rem;
+}
+
+div:nth-child(2) span:nth-child(2) {
+    float: right;
+}
+*/
