@@ -10,6 +10,7 @@ class PublicController {
     }
 
     public function homePage() {
+        
         $title = "Accueil";
         require 'pages/header.php';
         require 'pages/home.php';

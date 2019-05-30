@@ -14,7 +14,6 @@ $routes = $jsonToArray;
 $url = $_SERVER['REQUEST_URI'];
 $url = str_replace('/AppliSynth', '', $url);
 $url = strtok($url, '?');
-
 if ($url == "/") {
     header('Location: ' . BASE_URL . $routes['home']['path']);
     exit();
