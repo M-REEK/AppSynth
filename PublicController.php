@@ -96,4 +96,10 @@ class PublicController {
         require 'pages/newEntreprise.php';
         require 'pages/footer.php';
     }
+    public function newEtudiantPage() {
+        $title = "Nouvel etudiant";
+        require 'pages/header.php';
+        require 'pages/newEtudiant.php';
+        require 'pages/footer.php';
+    }
 }
