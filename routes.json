@@ -37,6 +37,7 @@
     "parametre": {
         "path": "/parametre",
         "run": "parametrePage",
+    },
 
     "newEtudiant": {
         "path": "/nouvel-etudiant",
