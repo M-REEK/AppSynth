@@ -2,7 +2,7 @@
 <main class="newConvention">
 	<p>Nouvelle convention</p>
 	<form method="POST" action="">
-		<select name="pays" id="pays">
+		<select name="listeEntreprise" id="listeEnteprise">
 		<?php
  		while ($donnees = $allEntreprises->fetch())
 		{?>
