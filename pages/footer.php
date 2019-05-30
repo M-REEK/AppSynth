@@ -1,4 +1,4 @@
-    </div> <!-- End #site-main -->
+
     <footer>
         <p>&copy; <?= date('Y') ?> BAT-GAUTHIER-HENINI-TOUCHE Tous droits réservés</p>
     </footer>

@@ -17,4 +17,3 @@
             <p>Compte : <?= ucfirst($_SESSION['member']['pseudo']) ?></p>
         </div>
     </header>
-    <div id="site-main">

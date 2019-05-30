@@ -15,10 +15,6 @@ body {
     flex-direction: column;
     background-color: rgb(186, 200, 247);
 }
-#site-main {
-    display: flex;
-    flex: 1 1 auto;
-}
 main {
     flex: 1 1 auto;
     display: flex;
@@ -157,24 +153,24 @@ footer p {
 /******* Nav ********/
 /********************/
 nav {
-	background-color: #A5AEFF;
+    background-color: #A5AEFF;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
 }
-nav ul {
-  	padding: 0;
-  	margin: 0;
-}
-nav li:hover {
+nav a:hover {
   	background-color: #848AFF;
 }
-nav li {
-  	display: flex;
-  	flex-direction: row;
-  	align-items: center;
+nav a {
+  	flex: 1;
   	font-size: 1.5rem;
   	padding-right: 1rem;
-  	padding-left: 1rem;
+    padding-left: 1rem;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
 }
-nav li i {
+nav a i {
 	color: orange;
 	margin-right: 1.5rem;
 	width: 2rem;
