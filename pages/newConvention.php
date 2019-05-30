@@ -14,8 +14,9 @@
 			</div>
 			<div class="form">
 				<label for="">Etudiant</label>
-				<input type="text" name="" value="" placeholder="Nom Prénom Etudiant">
-				<input type="text" name="" value="" placeholder="num étudiant">
+				<input type="text" name="" value="" placeholder="Nom etudiant">
+				<input type="text" name="" value="" placeholder="Prenom etudiant">
+				<input type="text" name="" value="" placeholder="Numéro étudiant">
 			</div>
 			<div class="form">
 				<label for="">Date de début</label>
