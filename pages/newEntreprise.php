@@ -3,16 +3,24 @@
     <section id=new_ent>
 		<h1>Nouvelle entreprise</h1>
 		<div id=form>
-			<form method="POST" action="traitement.php">
-				<p><label>Numero Entreprise</label> : <input type="text" name="numero_ent" /></p>
-				<p><label>Nom entreprise</label> : <input type="text" name="nom_ent" /></p>
-				<p><label>Numéro Siren</label> : <input type="text" name="numero_siren_ent" /></p>   
-				<p><label>E-mail</label> : <input type="text" name="e-mail_ent" /></p>    
-				<p><label>Adresse</label> : <input type="text" name="adresse_ent" /></p>
-				<p><label>Code Postal</label> : <input type="text" name="CP_ent" /></p>   
-				<p><label>Téléphone</label> : <input type="text" name="telephone_ent" /></p>   
+			<form method="POST" action="">
+				<p><label for="num_ent">Numero Entreprise</label> : <input type="text" name="num_ent" id="num_ent" /></p>
+				<p><label for="nom_ent">Nom entreprise</label> : <input type="text" name="nom_ent" id="nom_ent" /></p>
+				<p><label for="num_siren_ent">Numéro Siren</label> : <input type="text" name="num_siren_ent" id="num_siren_ent" /></p>   
+				<p><label for="email_ent">E-mail</label> : <input type="text" name="email_ent" id="email_ent" /></p>    
+				<p><label for="adresse_ent">Adresse</label> : <input type="text" name="adresse_ent" id="adresse_ent"/></p>
+				<p><label for="CP_ent">Code Postal</label> : <input type="text" name="CP_ent" id="CP_ent"/></p>   
+				<p><label for="telephone_ent">Téléphone</label> : <input type="text" name="telephone_ent" id="telephone_ent" /></p>   
+				<p><label for="indice_confiance">Indice de confiance</label>
+				<select id="indice_confiance" name="indice_confiance[]"> 
+					<option value="1">1</option>
+    				<option value="2">2</option>
+				    <option value="3">3</option>
+				    <option value="4">4</option>
+				    <option value="5">5</option>
+				</select></p>
+				<p><button>Ajouter Entreprise</button></p>
 			</form>
-		<p><button type="button">Valider</button></p>
 		</div>
     </section>
 </main>

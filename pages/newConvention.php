@@ -1,5 +1,6 @@
 <?php require 'menu.php'; ?>
 <main class="newConvention">
+
 	<p>Nouvelle convention</p>
 	<form method="POST" action="">
 		<select name="pays" id="pays">
@@ -12,6 +13,8 @@
 		$allEntreprises->closeCursor();
 		?>
 		</select>
-				<p><button >Ajouter Convention</button></p>
+
+    <p><button >Ajouter Convention</button></p>
+
 	</form>
 </main>
