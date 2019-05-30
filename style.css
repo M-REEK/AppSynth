@@ -298,10 +298,12 @@ nav a i {
   padding-left: : 1rem;
   padding-right: 1rem;
   background-color: #D2D8FE;
+  width: auto;
 }
 .etudiant div:nth-child(1) p{
   display: flex;
   justify-content: flex-start;
+  margin-bottom: 0.2;
 }
 .etudiant div:nth-child(1) p span{
   margin-right: 3rem;
@@ -311,6 +313,9 @@ nav a i {
 }
 .etudiant div:nth-child(2){
   margin-left: 2rem;
+}
+.etudiant div:nth-child(2) p{
+  margin: 0.2rem;
 }
 .etudiant div:nth-child(3){
   display: flex;
