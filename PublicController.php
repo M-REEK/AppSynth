@@ -18,17 +18,21 @@ class PublicController {
     }
     
     public function connexionPage() {
-        if (isset($_SESSION['member'])) {
+        if (isset($_SESSION['member'])) 
+        {
             header('Location: ' . BASE_URL . '/');
         }
         $title = "Connexion";
         require 'Manager.php';
         $manager = new Manager();
-        if (!empty($_POST)) {
-            if (!empty(trim($_POST['login'])) && !empty(trim($_POST['password']))) {
+        if (!empty($_POST))
+        {
+            if (!empty(trim($_POST['login'])) && !empty(trim($_POST['password']))) 
+            {
                 $pseudo = trim($_POST['login']);
                 $password = trim($_POST['password']);
-                if ($pseudo == 'admin') {
+                if ($pseudo == 'admin') 
+                {
                     $req = $manager->dbConnect()->prepare('SELECT * FROM table_utilisateur_admin WHERE login = ?');
                 } else {
                     $req = $manager->dbConnect()->prepare('SELECT * FROM table_utilisateur_etudiant WHERE login = ?');
@@ -46,7 +50,8 @@ class PublicController {
                         $_SESSION['member']['role'] = 'etudiant';
                     }
                     header('Location: ' . BASE_URL . '/accueil');
-                } else {
+                } else 
+                {
                     $_SESSION['alert'] = "<div class='alert error'>Identifiants incorrects.</div>";
                 }
             }
@@ -134,7 +139,8 @@ class PublicController {
         require 'Manager.php';
         $manager = new Manager();
         $req = $manager->dbConnect();
-        if (($test = $_SESSION['member']['pseudo']) == 'admin') {
+        if (($test = $_SESSION['member']['pseudo']) == 'admin') 
+        {
             $req = $manager->dbConnect()->prepare('SELECT * FROM table_utilisateur_admin WHERE login = ?');
         }
         $user = $req->execute([$test]);
