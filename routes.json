@@ -34,6 +34,10 @@
         "run": "newConventionPage",
         "from": "PublicController"
     },
+    "parametre": {
+        "path": "/parametre",
+        "run": "parametrePage",
+
     "newEtudiant": {
         "path": "/nouvel-etudiant",
         "run": "newEtudiantPage",
