@@ -97,9 +97,41 @@ class PublicController {
         require 'pages/footer.php';
     }
     public function newEtudiantPage() {
+
         $title = "Nouvel etudiant";
-        require 'pages/header.php';
-        require 'pages/newEtudiant.php';
-        require 'pages/footer.php';
+        require 'Manager.php';
+        $manager = new Manager();
+         if (!empty($_POST)) 
+         {
+            if (!empty(trim($_POST['nom_etu'])) && !empty(trim($_POST['prenom_etu'])) && !empty(trim($_POST['num_etu'])) && !empty(trim($_POST['adresse_etu'])) && !empty(trim($_POST['CP_etu'])) && !empty(trim($_POST['telephone_etu'])) && !empty(trim($_POST['e-mail_etu'])) && !empty(trim($_POST['DOB_etu'])))
+            {
+                $nom = trim($_POST['nom_etu']);
+                $prenom = trim($_POST['prenom_etu']);
+                $numEtu = trim($_POST['num_etu']);
+                $adresse = trim($_POST['adresse_etu']);
+                $CP = trim($_POST['CP_etu']);
+                $telephone = trim($_POST['telephone_etu']);
+                $email = trim($_POST['e-mail_etu']);
+                $DOB = trim($_POST['DOB_etu']);
+
+                foreach($_POST['civilite'] as $valeur)
+                {
+                   $civilite=$valeur;
+                }
+                $req_etu = $manager->dbConnect()->prepare('INSERT INTO table_etudiant (`civilite`,`nom`,`prenom`,`dateDeNaissance`,`adresse`,`code_postal`,`telephone_portable`,`email`,`login`) VALUES (?,?,?,?,?,?,?,?,?)');
+                $req_etu->execute(array($civilite,$nom,$prenom,$DOB,$adresse,$CP,$telephone,$email,$numEtu));
+
+
+            }
+
+            else
+            {
+                 $_SESSION['alert'] = "<div class='alert error'>Veuillez remplir tous les champs</div>";
+            }
+        }
+            require 'pages/header.php';
+            require 'pages/newEtudiant.php';
+            require 'pages/footer.php';
+
     }
 }

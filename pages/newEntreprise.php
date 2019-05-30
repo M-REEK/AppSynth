@@ -3,7 +3,7 @@
     <section id=new_ent>
 		<h1>Nouvelle entreprise</h1>
 		<div id=form>
-			<form method="POST" action="traitement.php">
+			<form method="POST" action="<?= BASE_URL . '/connexion' ?>">
 				<p><label>Numero Entreprise</label> : <input type="text" name="numero_ent" /></p>
 				<p><label>Nom entreprise</label> : <input type="text" name="nom_ent" /></p>
 				<p><label>Numéro Siren</label> : <input type="text" name="numero_siren_ent" /></p>   
