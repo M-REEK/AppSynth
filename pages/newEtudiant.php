@@ -13,7 +13,7 @@
 				<p><label for="CP_etu">Code Postal</label> : <input type="text" id="CP_etu" name="CP_etu" /></p>  
 				<p><label for="telephone_etu">Téléphone</label> : <input type="text" id="telephone_etu" name="telephone_etu" /></p>  
 				<p><label for="e-mail_etu">E-mail</label> : <input type="text" id="e-mail_etu" name="e-mail_etu" /></p>  
-				<p><button >Valider</button></p> 
+				<p><button >Ajouter Etudiant</button></p> 
 			</form>
 		</div>
     </section>

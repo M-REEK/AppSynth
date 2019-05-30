@@ -19,7 +19,7 @@
 				    <option value="4">4</option>
 				    <option value="5">5</option>
 				</select></p>
-				<p><button>Valider</button></p>
+				<p><button>Ajouter Entreprise</button></p>
 			</form>
 		</div>
     </section>

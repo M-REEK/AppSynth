@@ -85,6 +85,11 @@ class PublicController {
 
     public function newConventionPage() {
         $title = "Nouvelle convention";
+        require 'Manager.php';
+        $manager = new Manager();
+        $req = $manager->dbConnect();
+        $allEntreprises = $req->query('SELECT * FROM table_client');
+
         require 'pages/header.php';
         require 'pages/newConvention.php';
         require 'pages/footer.php';
