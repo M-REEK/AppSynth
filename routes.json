@@ -38,5 +38,13 @@
         "path": "/parametre",
         "run": "parametrePage",
         "from": "PublicController"
+    
     },
+
+    "newEtudiant": {
+        "path": "/nouvel-etudiant",
+        "run": "newEtudiantPage",
+        "from": "PublicController"
+    }
+
 }
