@@ -214,7 +214,7 @@ nav a i {
     font-size: 2em;   
 }
 
-#form p{
+#param .form {
     background: grey;
     display: flex;
     margin-bottom: 1.5rem;
@@ -224,7 +224,7 @@ nav a i {
     padding-bottom: 1rem;
 }
 
-#form .form label {
+#param .form label {
     margin-left: 2rem;
 }
 /*div:nth-child(2) span:nth-child(1) {
