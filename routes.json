@@ -33,5 +33,11 @@
         "path": "/nouvelle-convention",
         "run": "newConventionPage",
         "from": "PublicController"
+    },
+    "newEtudiant": {
+        "path": "/nouvel-etudiant",
+        "run": "newEtudiantPage",
+        "from": "PublicController"
     }
+
 }

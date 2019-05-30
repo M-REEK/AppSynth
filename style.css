@@ -157,6 +157,7 @@ nav {
     display: flex;
     flex-direction: column;
     position: fixed;
+    top:20%;
 }
 nav a:hover {
   	background-color: #848AFF;
