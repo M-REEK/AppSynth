@@ -145,11 +145,32 @@ class PublicController {
         }
         $user = $req->execute([$test]);
         $user = $req->fetch();
+        if(!empty($_POST))
+        {
+            if(!empty(trim($_POST['modif_id'])))
+            {
+                $login = trim($_POST['modif_id']);
+                $req_id = $manager->dbConnect()->prepare('UPDATE table_utilisateur_admin SET login = ? WHERE login = ?');
+                $req_id->execute(array($login,$user['login']));
+            }
+            if(!empty(trim($_POST['modif_mdp'])))
+            {
+                $mdp = trim($_POST['modif_mdp']);
+                $req_mdp = $manager->dbConnect()->prepare('UPDATE table_utilisateur_admin SET mdp = ? WHERE login = ?');
+                $req_mdp->execute(array($mdp,$user['login']));
+            }
+            if(!empty(trim($_POST['modif_mail'])))
+            {
+                $mail = trim($_POST['modif_mail']);
+                $req_main = $manager->dbConnect()->prepare('UPDATE table_utilisateur_admin SET mail = ? WHERE login = ?');
+                $req_main->execute(array($mail,$user['login']));
+            }
+        }
         require 'pages/header.php';
         require 'pages/parametre.php';
-        require 'pages/footer.php';
-    
-}
+        require 'pages/footer.php';   
+    }
+
     public function newEtudiantPage() {
 
         $title = "Nouvel etudiant";
