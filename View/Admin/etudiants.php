@@ -1,4 +1,3 @@
-<?php require 'menu.php' ?>
 <main>
     <section class="Listes">
         <p>Ajouter un etudiant <a href="#"><i class="fas fa-plus-circle"></i></a></p>

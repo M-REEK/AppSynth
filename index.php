@@ -1,7 +1,9 @@
 <?php
-namespace App;
+namespace AppliSynth;
 
 session_start();
+
+require_once __DIR__ . '/vendor/autoload.php';
 
 define('BASE_URL', '/AppliSynth'); // root uri
 
@@ -33,8 +35,7 @@ if (!isset($functionToExecute)) {
     header('Location: ' . BASE_URL . $routes['home']['path']);
 }
 
-require($controllerToCall . '.php');
-$controllerToCall = 'App\Controller\\' . $controllerToCall;
+$controllerToCall = 'AppliSynth\Controller\\' . $controllerToCall;
 
 $controller = new $controllerToCall();
 $controller->$functionToExecute();

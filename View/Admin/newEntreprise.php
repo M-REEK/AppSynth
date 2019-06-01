@@ -1,4 +1,3 @@
-<?php require 'menu.php' ?>
 <main>
     <section id=new_ent>
 		<h1>Nouvelle entreprise</h1>

@@ -1,0 +1,25 @@
+{
+    "name": "AppliSynth",
+    "description": "School project",
+    "authors": [
+        {
+            "name": "Bat Paulin",
+            "email": "batpaulin@gmail.com"
+        },
+        {
+            "name": "Henini Léo"
+        },
+        {
+            "name": "Gauthier Charlotte"
+        },
+        {
+            "name": "Touche Aymeric"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "AppliSynth\\Core\\" : "Core/",
+            "AppliSynth\\Controller\\" : "Controller/"
+        }
+    }
+}

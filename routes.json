@@ -7,44 +7,41 @@
     "connexion": {
         "path": "/connexion",
         "run": "connexionPage",
-        "from": "PublicController"
+        "from": "AuthController"
     },
     "deconnexion": {
         "path": "/deconnexion",
         "run": "deconnexion",
-        "from": "PublicController"
+        "from": "AuthController"
     },
     "entreprises": {
         "path": "/entreprises",
         "run": "entreprisesPage",
-        "from": "PublicController"
+        "from": "AdminController"
     },
     "etudiants": {
         "path": "/etudiants",
         "run": "etudiantsPage",
-        "from": "PublicController"
+        "from": "AdminController"
     },
     "newEntreprise": {
         "path": "/nouvelle-entreprise",
         "run": "newEntreprisePage",
-        "from": "PublicController"
+        "from": "AdminController"
     },
     "newConvention": {
         "path": "/nouvelle-convention",
         "run": "newConventionPage",
-        "from": "PublicController"
+        "from": "AdminController"
     },
     "parametre": {
         "path": "/parametre",
         "run": "parametrePage",
-        "from": "PublicController"
-    
+        "from": "AdminController"
     },
-
     "newEtudiant": {
         "path": "/nouvel-etudiant",
         "run": "newEtudiantPage",
-        "from": "PublicController"
+        "from": "AdminController"
     }
-
 }

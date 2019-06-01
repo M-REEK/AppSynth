@@ -1,6 +1,4 @@
-<?php require 'menu.php'; ?>
 <main class="newConvention">
-
 	<p>Nouvelle convention</p>
 	<form method="POST" action="">
 		<select name="listeEntreprise" id="listeEnteprise">
@@ -15,6 +13,5 @@
 		</select>
 
     <p><button >Ajouter Convention</button></p>
-
 	</form>
 </main>

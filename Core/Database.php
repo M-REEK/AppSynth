@@ -1,5 +1,5 @@
 <?php
-namespace App\Controller;
+namespace AppliSynth\Core;
 
 use \PDO;
 

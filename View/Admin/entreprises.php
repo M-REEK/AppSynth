@@ -1,4 +1,3 @@
-<?php require 'menu.php' ?>
 <main>
     <section class="Listes">
         <p>Ajouter une entreprise <a href="#"><i class="fas fa-plus-circle"></i></a></p>

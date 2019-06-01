@@ -1,4 +1,3 @@
-<?php require 'menu.php' ?>
 <main class="parametre">
 	<section>
 		<h1>Parametres</h1>
