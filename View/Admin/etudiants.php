@@ -1,7 +1,6 @@
 <main>
     <section class="Listes">
-        <p>Ajouter un etudiant <a href="#"><i class="fas fa-plus-circle"></i></a></p>
-        <div>Trier par: numéro etudiant / nom / nombre convention signé / </div>
+        <p><a href="nouvel-etudiant">Ajouter un etudiant <i class="fas fa-plus-circle"></i></a></p>
         <?php foreach ($allEtudiants as $etu): ?>
             <div class="etudiant">
                 <div>

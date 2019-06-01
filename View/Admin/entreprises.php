@@ -1,7 +1,6 @@
 <main>
     <section class="Listes">
-        <p>Ajouter une entreprise <a href="#"><i class="fas fa-plus-circle"></i></a></p>
-        <div>Trier par: numéro / date croissante / date décroissante / montant réglé / </div>
+        <p><a href="nouvelle-entreprise">Ajouter une entreprise <i class="fas fa-plus-circle"></i></a></p>
         <?php foreach ($allEntreprises as $ent): ?>
             <div class="listeEntreprises">
                 <div>
