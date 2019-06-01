@@ -126,4 +126,11 @@ class AdminController extends Controller {
         $this->render('newEtudiant.php', 'Nouvel étudiant');
     }
 
+    public function conventionsPage() {
+        $manager = new Manager();
+        $req = $manager->dbConnect();
+        $allConventions = $req->query('SELECT * FROM table_convention tcn, table_client tcl WHERE tcn.id_client = tcl.id_client ORDER BY id_convention ASC');
+        $this->render('conventions.php', 'Conventions', compact('allConventions', 'req'));
+    }
+
 }

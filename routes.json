@@ -43,5 +43,10 @@
         "path": "/nouvel-etudiant",
         "run": "newEtudiantPage",
         "from": "AdminController"
+    },
+    "conventions": {
+        "path": "/conventions",
+        "run": "conventionsPage",
+        "from": "AdminController"
     }
 }

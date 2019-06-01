@@ -198,7 +198,6 @@ nav a i {
  	margin-left: 1rem;
 }
 
-
 /********************/
 /** Page entreprise **/
 /********************/
@@ -297,7 +296,7 @@ nav a i {
   border-style: solid;
   border-radius: 1rem;
   border-width: 0.05rem;
-  padding-left: : 1rem;
+  padding-left: 1rem;
   padding-right: 1rem;
   background-color: #D2D8FE;
   width: auto;
@@ -338,7 +337,6 @@ nav a i {
 .etudiant div:nth-child(3) a:nth-child(2) i{
   background-color: #AAB2FF;
 }
-=======
 
 /********************/
 /** Page parametre**/
@@ -377,3 +375,9 @@ div:nth-child(2) span:nth-child(2) {
     float: right;
 }
 */
+/********************/
+/* Conventions Page */
+/********************/
+.conventions {
+  margin: 1.5rem auto;
+}
