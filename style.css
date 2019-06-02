@@ -351,7 +351,7 @@ nav a i {
 
 .parametre h1 {
     text-align: center;
-    font-size: 2em;   
+    font-size: 2em;
 }
 
 #param .form {
@@ -380,4 +380,42 @@ div:nth-child(2) span:nth-child(2) {
 /********************/
 .conventions {
   margin: 1.5rem auto;
+  display: flex;
+  flex-direction: column;
+  border-style: solid;
+  border-radius: 1rem;
+  border-width: 0.05rem;
+  padding: 1rem;
+  background-color: #D2D8FE;
+}
+
+.infos{
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+}
+.conventions .pics{
+  display: flex;
+  flex-direction: row;
+}
+
+.conventions .pics a{
+  border-radius: 5rem;
+  height: 2rem;
+  width: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin:0.5rem;
+}
+
+.conventions .pics a:nth-child(1){
+  background-color: #4F61FF;
+}
+.conventions .pics a:nth-child(2){
+  background-color: #AAB2FF;
+}
+.conventions .etu{
+  display: flex;
+  flex-direction: column;
 }
