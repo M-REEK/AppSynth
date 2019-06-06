@@ -8,10 +8,10 @@ class AdminController extends Controller {
 
     public function __construct() {
         if (!AuthController::isAdmin() && $_SERVER['REQUEST_URI'] != BASE_URL . '/connexion') {
-            header('Location: ' . BASE_URL . '/connexion');     
+            header('Location: ' . BASE_URL . '/connexion');
         }
     }
-   
+
     public function entreprisesPage() {
         $title = "Entreprises";
         $manager = new Manager();
@@ -34,9 +34,29 @@ class AdminController extends Controller {
         $this->render('newConvention.php', 'Nouvelle convention', compact('allEntreprises'));
     }
 
+    public function ficheEtudiantPage() {
+        $title = "ficheEtudiant";
+        $manager = new Manager();
+        $req = $manager->dbConnect();
+        $req = $req->prepare('SELECT * FROM table_etudiant WHERE id_etudiant = ?');
+        $etudiant = $req->execute([$_GET['id']]);
+        $etudiant = $req->fetch();
+        $this->render('ficheEtudiant.php', 'Fiche Etudiant', compact('etudiant'));
+    }
+
+    public function ficheEntreprisePage() {
+        $title = "ficheEntreprise";
+        $manager = new Manager();
+        $req = $manager->dbConnect();
+        $req = $req->prepare('SELECT * FROM table_client WHERE id_client = ?');
+        $entr = $req->execute([$_GET['id']]);
+        $entr = $req->fetch();
+        $this->render('ficheEntreprise.php', 'Fiche Entreprise', compact('entreprise'));
+    }
+
     public function newEntreprisePage() {
         $manager = new Manager();
-         if (!empty($_POST)) 
+         if (!empty($_POST))
          {
             if (!empty(trim($_POST['num_ent'])) && !empty(trim($_POST['nom_ent'])) && !empty(trim($_POST['num_siren_ent'])) && !empty(trim($_POST['adresse_ent'])) && !empty(trim($_POST['CP_ent'])) && !empty(trim($_POST['telephone_ent'])) && !empty(trim($_POST['email_ent'])))
             {
@@ -66,7 +86,7 @@ class AdminController extends Controller {
     public function parametrePage() {
         $manager = new Manager();
         $req = $manager->dbConnect();
-        if (($test = $_SESSION['member']['pseudo']) == 'admin') 
+        if (($test = $_SESSION['member']['pseudo']) == 'admin')
         {
             $req = $manager->dbConnect()->prepare('SELECT * FROM table_utilisateur_admin WHERE login = ?');
         }
@@ -93,12 +113,12 @@ class AdminController extends Controller {
                 $req_main->execute(array($mail, $user['login']));
             }
         }
-        $this->render('parametre.php', 'Paramètres', compact('user'));  
+        $this->render('parametre.php', 'Paramètres', compact('user'));
     }
 
     public function newEtudiantPage() {
         $manager = new Manager();
-         if (!empty($_POST)) 
+         if (!empty($_POST))
          {
             if (!empty(trim($_POST['nom_etu'])) && !empty(trim($_POST['prenom_etu'])) && !empty(trim($_POST['num_etu'])) && !empty(trim($_POST['adresse_etu'])) && !empty(trim($_POST['CP_etu'])) && !empty(trim($_POST['telephone_etu'])) && !empty(trim($_POST['e-mail_etu'])) && !empty(trim($_POST['DOB_etu'])))
             {

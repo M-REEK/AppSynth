@@ -7,7 +7,7 @@ use AppliSynth\Core\Controller;
 class AuthController extends Controller {
 
     public function connexionPage() {
-        if (isset($_SESSION['member'])) 
+        if (isset($_SESSION['member']))
         {
             header('Location: ' . BASE_URL . '/');
         }
@@ -15,11 +15,11 @@ class AuthController extends Controller {
         $manager = new Manager();
         if (!empty($_POST))
         {
-            if (!empty(trim($_POST['login'])) && !empty(trim($_POST['password']))) 
+            if (!empty(trim($_POST['login'])) && !empty(trim($_POST['password'])))
             {
                 $pseudo = trim($_POST['login']);
                 $password = trim($_POST['password']);
-                if ($pseudo == 'admin') 
+                if ($pseudo == 'admin')
                 {
                     $req = $manager->dbConnect()->prepare('SELECT * FROM table_utilisateur_admin WHERE login = ?');
                 } else {
@@ -38,7 +38,7 @@ class AuthController extends Controller {
                         $_SESSION['member']['role'] = 'etudiant';
                     }
                     header('Location: ' . BASE_URL . '/accueil');
-                } else 
+                } else
                 {
                     $_SESSION['alert'] = "<div class='alert error'>Identifiants incorrects.</div>";
                 }

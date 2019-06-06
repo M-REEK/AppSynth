@@ -11,7 +11,7 @@
                     <p>Conventions en cours: </p>
                 </div>
                 <div>
-                  <a href="#" title="Editer"><i class="fas fa-pencil-alt"></i></a> <a href="#" title="Visualiser"><i class="far fa-eye"></i></a>
+                  <a href="#" title="Editer"><i class="fas fa-pencil-alt"></i></a> <a href="ficheEtudiant?id=<?= $etu['id_etudiant'] ?>" title="Visualiser"><i class="far fa-eye"></i></a>
                 </div>
             </div>
         <?php endforeach; ?>
