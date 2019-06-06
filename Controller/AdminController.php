@@ -133,4 +133,9 @@ class AdminController extends Controller {
         $this->render('conventions.php', 'Conventions', compact('allConventions', 'req'));
     }
 
+    public function editerEntreprisePage() {
+        $manager = new Manager();
+        $this->render('editerEntreprise.php', 'Editer etudiant');
+    }
+
 }
