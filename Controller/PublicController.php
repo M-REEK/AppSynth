@@ -7,7 +7,7 @@ class PublicController extends Controller {
 
     public function __construct() {
         if (!isset($_SESSION['member']) && $_SERVER['REQUEST_URI'] != BASE_URL . '/connexion') {
-            header('Location: ' . BASE_URL . '/connexion');     
+            header('Location: ' . BASE_URL . '/connexion');
         }
     }
 
