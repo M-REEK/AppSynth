@@ -10,7 +10,7 @@
 				<p><label for="CP_ent">Code Postal</label> : <input type="text" name="CP_ent" id="CP_ent"/></p>   
 				<p><label for="telephone_ent">Téléphone</label> : <input type="tel" name="telephone_ent" id="telephone_ent" /></p>   
 				<p><label for="indice_confiance">Indice de confiance</label>
-				<select id="indice_confiance" name="indice_confiance[]"> 
+				<select id="indice_confiance" name="indice_confiance[]">
 					<option value="1">1</option>
     				<option value="2">2</option>
 				    <option value="3">3</option>
