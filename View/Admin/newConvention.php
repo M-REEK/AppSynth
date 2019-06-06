@@ -38,9 +38,9 @@
 			?>
 			</select>
 		</p>
-		<p><label for="date_debut">Date de début:</label> <input type="text" id="datepicker" name="date_debut"></p>
-		<p><label for="date_fin">Date de fin:</label> <input type="text" id="datepicker2" name="date_fin"></p>
-		<p><label for="montant">Montant</label> : <input type="number" name="montant" id="montant" /></p>
+		<p><label for="date_debut">Date de début:</label> <input type="date" id="date_debut" name="date_debut"></p>
+		<p><label for="date_fin">Date de fin:</label> <input type="date" id="date_fin" name="date_fin"></p>
+		<p><label for="montant">Montant</label> : <input step="0.01" type="number" name="montant" id="montant" /></p>
 		<p><label for="sujet">Sujet</label> : <input type="text" name="sujet" id="sujet" /></p>
 
 
