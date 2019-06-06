@@ -30,8 +30,44 @@ class AdminController extends Controller {
     public function newConventionPage() {
         $manager = new Manager();
         $req = $manager->dbConnect();
-        $allEntreprises = $req->query('SELECT * FROM table_client');
-        $this->render('newConvention.php', 'Nouvelle convention', compact('allEntreprises'));
+        $allEntreprises = $req->query('SELECT * FROM table_client ORDER BY nom_societe');
+        $allEtudiants = $req->query('SELECT * FROM table_etudiant ORDER BY nom');
+ 		if (!empty($_POST)) 
+         {
+            if (!empty(trim($_POST['date_debut'])) && !empty(trim($_POST['date_fin'])) && !empty(trim($_POST['montant'])) && !empty(trim($_POST['sujet'])))
+            {
+                $date_d = trim($_POST['date_debut']);
+                $date_f = trim($_POST['date_fin']);
+                $montant = trim($_POST['montant']);
+                $sujet = trim($_POST['sujet']);
+                foreach($_POST['listeEntreprise'] as $ent)
+                {
+                   $entreprise=$ent;
+                }
+                $req_conv = $req->prepare('INSERT INTO table_convention (`id_client`,`date_debut`,`date_fin`,`montant`,`sujet`) VALUES (?,?,?,?,?)');
+                $req_conv->execute(array($entreprise,$date_d,$date_f,$montant,$sujet));
+
+                $req_cherche=$req->prepare('SELECT id_convention FROM table_convention where date_debut=? and date_fin=? and id_client=? and sujet=?');
+                $data = $req_cherche->execute(array($date_d,$date_f,$entreprise,$sujet));
+                $data=$req_cherche->fetch();
+
+ 						foreach($_POST['listeEtudiant'] as $etu)
+                		{
+		                  $etudiant=$etu;
+		                  $req_etu =$req->prepare('INSERT INTO table_convention_etudiant (`id_convention`,`id_etudiant`) VALUES (?,?)');
+		                 $req_etu->execute(array($data[0],$etudiant));
+		                }
+                	
+                
+            }
+
+            else
+            {
+                 $_SESSION['alert'] = "<div class='alert error'>Veuillez remplir tous les champs</div>";
+            }
+        }
+
+        $this->render('newConvention.php', 'Nouvelle convention', compact('allEntreprises','allEtudiants'));
     }
 
     public function newEntreprisePage() {
@@ -47,6 +83,7 @@ class AdminController extends Controller {
                 $CP = trim($_POST['CP_ent']);
                 $telephone = trim($_POST['telephone_ent']);
                 $email = trim($_POST['email_ent']);
+
                 foreach($_POST['indice_confiance'] as $valeur)
                 {
                    $confiance=$valeur;
