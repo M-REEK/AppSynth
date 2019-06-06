@@ -96,6 +96,7 @@ class AdminController extends Controller {
          {
             if (!empty(trim($_POST['num_ent'])) && !empty(trim($_POST['nom_ent'])) && !empty(trim($_POST['num_siren_ent'])) && !empty(trim($_POST['adresse_ent'])) && !empty(trim($_POST['CP_ent'])) && !empty(trim($_POST['telephone_ent'])) && !empty(trim($_POST['email_ent'])))
             {
+	         //Recuperation des données 
                 $nom = trim($_POST['nom_ent']);
                 $siren = trim($_POST['num_siren_ent']);
                 $numEnt = trim($_POST['num_ent']);
@@ -103,20 +104,29 @@ class AdminController extends Controller {
                 $CP = trim($_POST['CP_ent']);
                 $telephone = trim($_POST['telephone_ent']);
                 $email = trim($_POST['email_ent']);
-
                 foreach($_POST['indice_confiance'] as $valeur)
                 {
                    $confiance=$valeur;
                 }
+                foreach($_POST['indice_confiance'] as $valeur){$confiance=$valeur;}
+                //Verification des données 
+    		if(!preg_match("/[0-9]{9}/", $siren))
+    		{$_SESSION['alert'] = "<div class='alert error'>Champs siren incorrect (9 chiffres)</div>";}	
+    		if(!preg_match("/[0-9]*/", $CP))
+    		{$_SESSION['alert'] = "<div class='alert error'>Champs code postal incorrect</div>";}	
+                if(!filter_var($phone, FILTER_SANITIZE_NUMBER_INT))
+                {$_SESSION['alert'] = "<div class='alert error'>Champs numero incorrect</div>";}
+                if(!filter_var(trim($_POST['email_ent']), FILTER_VALIDATE_EMAIL))
+                {$_SESSION['alert'] = "<div class='alert error'>Champs email incorrect</div>";}
+            	//Insertion dans la BDD
                 $req_ent = $manager->dbConnect()->prepare('INSERT INTO table_client (`nom_societe`,`num_siren`,`email`,`adresse`,`code postal`,`indice_confiance`,`telephone`) VALUES (?,?,?,?,?,?,?)');
                 $req_ent->execute(array($nom,$siren,$email,$adresse,$CP,$confiance,$telephone));
-            }
-
-            else
+	    }
+            else //Si un champs non remplis
             {
                  $_SESSION['alert'] = "<div class='alert error'>Veuillez remplir tous les champs</div>";
             }
-        }
+	    
         $this->render('newEntreprise.php', 'Nouvelle entreprise');
     }
 
