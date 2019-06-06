@@ -8,20 +8,23 @@
                   <div>
                     <div>Entreprises : <?= $c['nom_societe'] ?></div>
                     <div>Etudiant(s) :
-                      <div>
-                        <?php
-                            $names = $req->query('SELECT nom, prenom
-                                                FROM table_etudiant te, table_convention_etudiant tce
-                                                WHERE tce.id_convention = ' . $c['id_convention'] .
-                                                ' AND tce.id_etudiant = te.id_etudiant');
-                            foreach ($names as $name):
-                        ?>
-                        <?= $name['nom'] . ' ' . $name['prenom'] ?> /
-                        <?php endforeach; ?>
+                      <div class="listeEtu">
+
+                          <?php
+                              $names = $req->query('SELECT nom, prenom
+                                                  FROM table_etudiant te, table_convention_etudiant tce
+                                                  WHERE tce.id_convention = ' . $c['id_convention'] .
+                                                  ' AND tce.id_etudiant = te.id_etudiant');
+                              foreach ($names as $name):
+                          ?>
+                          <div>
+                          <?= $name['nom'] . ' ' . $name['prenom'] ?>
+                          </div>
+                          <?php endforeach; ?>
                       </div>
                     </div>
                   </div>
-                  <div>
+                  <div class="listeInfos">
                     <div>Montant : <?= $c['montant'] ?></div>
                     <div>Statut: <?= $c['statut_projet'] ?></div>
                     <div>
