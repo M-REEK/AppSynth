@@ -114,7 +114,7 @@ class AdminController extends Controller {
     		{$_SESSION['alert'] = "<div class='alert error'>Champs siren incorrect (9 chiffres)</div>";}	
     		if(!preg_match("/[0-9]*/", $CP))
     		{$_SESSION['alert'] = "<div class='alert error'>Champs code postal incorrect</div>";}	
-                if(!filter_var($phone, FILTER_SANITIZE_NUMBER_INT))
+                if(!filter_var($telephone, FILTER_SANITIZE_NUMBER_INT))
                 {$_SESSION['alert'] = "<div class='alert error'>Champs numero incorrect</div>";}
                 if(!filter_var(trim($_POST['email_ent']), FILTER_VALIDATE_EMAIL))
                 {$_SESSION['alert'] = "<div class='alert error'>Champs email incorrect</div>";}
@@ -126,6 +126,7 @@ class AdminController extends Controller {
             {
                  $_SESSION['alert'] = "<div class='alert error'>Veuillez remplir tous les champs</div>";
             }
+    }
 	    
         $this->render('newEntreprise.php', 'Nouvelle entreprise');
     }
