@@ -48,5 +48,11 @@
         "path": "/conventions",
         "run": "conventionsPage",
         "from": "AdminController"
+    },
+
+    "editerEntreprisePage": {
+        "path": "/editerEntreprise",
+        "run": "editerEntreprisePage",
+        "from": "AdminController"
     }
 }
