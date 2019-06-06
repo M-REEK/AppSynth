@@ -343,9 +343,6 @@ nav a i {
 /********************/
 .parametre {
     display: flex;
-    /*flex-direction: column;
-    justify-content: center;
-    align-items: center;*/
     margin-top: 5rem;
 }
 
@@ -355,26 +352,24 @@ nav a i {
 }
 
 #param .form {
-    background: grey;
+    background: #D2D8FE;
     display: flex;
     margin-bottom: 1.5rem;
     justify-content: center;
     align-items: center;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-radius: 1rem;
+    border-style: solid;
+    border-width: 0.05rem;
 }
 
 #param .form label {
     margin-left: 2rem;
 }
-/*div:nth-child(2) span:nth-child(1) {
-    margin-left: 2rem;
-}
 
-div:nth-child(2) span:nth-child(2) {
-    float: right;
-}
-*/
 /********************/
 /* Conventions Page */
 /********************/
