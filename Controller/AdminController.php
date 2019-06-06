@@ -49,8 +49,8 @@ class AdminController extends Controller {
         $manager = new Manager();
         $req = $manager->dbConnect();
         $req = $req->prepare('SELECT * FROM table_client WHERE id_client = ?');
-        $entr = $req->execute([$_GET['id']]);
-        $entr = $req->fetch();
+        $entreprise = $req->execute([$_GET['id']]);
+        $entreprise = $req->fetch();
         $this->render('ficheEntreprise.php', 'Fiche Entreprise', compact('entreprise'));
     }
 
