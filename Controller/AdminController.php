@@ -116,8 +116,6 @@ class AdminController extends Controller {
                 $telephone = trim($_POST['telephone_ent']);
                 $email = trim($_POST['email_ent']);
                 foreach($_POST['indice_confiance'] as $valeur){$confiance=$valeur;}
-
-<<<<<<< HEAD
                 //Verification des données 
     		    if((!preg_match("/[0-9]{9}/", $siren)) || (!preg_match("/[0-9]*/", $CP)) || (!filter_var($telephone, FILTER_SANITIZE_NUMBER_INT)) || (!filter_var(trim($_POST['email_ent']), FILTER_VALIDATE_EMAIL)))
                 {
@@ -145,32 +143,11 @@ class AdminController extends Controller {
                     $req_ent->execute(array($nom,$siren,$email,$adresse,$CP,$confiance,$telephone));   
                 }	   	
 	        }
-=======
-                //Verification des données
-    		    if(!preg_match("/[0-9]{9}/", $siren))
-    		    {$_SESSION['alert'] = "<div class='alert error'>Champs siren incorrect (9 chiffres)</div>";}
-    		    if(!preg_match("/[0-9]*/", $CP))
-    		    {$_SESSION['alert'] = "<div class='alert error'>Champs code postal incorrect</div>";}
-                if(!filter_var($telephone, FILTER_SANITIZE_NUMBER_INT))
-                {$_SESSION['alert'] = "<div class='alert error'>Champs numero incorrect</div>";}
-                if(!filter_var(trim($_POST['email_ent']), FILTER_VALIDATE_EMAIL))
-                {$_SESSION['alert'] = "<div class='alert error'>Champs email incorrect</div>";}
-
-            	//Insertion dans la BDD
-                $req_ent = $manager->dbConnect()->prepare('INSERT INTO table_client (`nom_societe`,`num_siren`,`email`,`adresse`,`code postal`,`indice_confiance`,`telephone`) VALUES (?,?,?,?,?,?,?)');
-                $req_ent->execute(array($nom,$siren,$email,$adresse,$CP,$confiance,$telephone));
-	    }
->>>>>>> feb9d90a3af941b37d64484b2f5251b4472a101b
             else //Si un champs non remplis
             {
                  $_SESSION['alert'] = "<div class='alert error'>Veuillez remplir tous les champs</div>";
             }
-<<<<<<< HEAD
         }
-=======
-    }
-
->>>>>>> feb9d90a3af941b37d64484b2f5251b4472a101b
         $this->render('newEntreprise.php', 'Nouvelle entreprise');
     }
 
@@ -232,7 +209,6 @@ class AdminController extends Controller {
                 foreach($_POST['civilite'] as $valeur)
                 {$civilite=$valeur;}
 
-<<<<<<< HEAD
                 //Verification des données  
                 if((!preg_match("/[0-9]*/", $CP)) || (!filter_var($telephone, FILTER_SANITIZE_NUMBER_INT)) || (!filter_var(trim($_POST['email_etu']), FILTER_VALIDATE_EMAIL)))
                 {
@@ -255,20 +231,7 @@ class AdminController extends Controller {
                     $req_etu = $manager->dbConnect()->prepare('INSERT INTO table_etudiant (`civilite`,`nom`,`prenom`,`dateDeNaissance`,`adresse`,`code_postal`,`telephone_portable`,`email`,`login`) VALUES (?,?,?,?,?,?,?,?,?)');
                     $req_etu->execute(array($civilite,$nom,$prenom,$DOB,$adresse,$CP,$telephone,$email,$numEtu));
                 }  
-=======
 
-                if(!preg_match("/[0-9]*/", $CP))
-                {$_SESSION['alert'] = "<div class='alert error'>Champs code postal incorrect</div>";}
-                if(!filter_var($telephone, FILTER_SANITIZE_NUMBER_INT))
-                {$_SESSION['alert'] = "<div class='alert error'>Champs numero incorrect</div>";}
-                if(!filter_var(trim($_POST['email_etu']), FILTER_VALIDATE_EMAIL))
-                {$_SESSION['alert'] = "<div class='alert error'>Champs email incorrect</div>";}
-
-                //Insertion dans la BDD
-                $req_etu = $manager->dbConnect()->prepare('INSERT INTO table_etudiant (`civilite`,`nom`,`prenom`,`dateDeNaissance`,`adresse`,`code_postal`,`telephone`,`email`,`login`) VALUES (?,?,?,?,?,?,?,?,?)');
-                $req_etu->execute(array($civilite,$nom,$prenom,$DOB,$adresse,$CP,$telephone,$email,$numEtu));
-                
->>>>>>> feb9d90a3af941b37d64484b2f5251b4472a101b
             }
             else //Si un des champs n'est pas remplis
             {
@@ -490,7 +453,6 @@ class AdminController extends Controller {
             echo $formatter->getHtmlMessage();
         }
     }
-<<<<<<< HEAD
     public function editerConvention() {
         $manager = new Manager();
         $req = $manager->dbConnect();
@@ -500,6 +462,3 @@ class AdminController extends Controller {
         $this->render('editerConvention.php', 'Editer convention', compact('convention','req'));
     }
 }
-=======
-}
->>>>>>> feb9d90a3af941b37d64484b2f5251b4472a101b
