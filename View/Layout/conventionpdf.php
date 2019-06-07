@@ -66,4 +66,8 @@
         <div>Motant de la convention : <?= $e['argent_total'] ?></div>
         <?php endforeach; ?>
     </div>
+
+    <div>
+        <h4>Signature</h4>
+    </div>
 </page>
