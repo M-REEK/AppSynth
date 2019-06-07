@@ -155,9 +155,7 @@ footer p {
 nav {
     background-color: #A5AEFF;
     display: flex;
-    flex-direction: column;
-    position: fixed;
-    top:20%;
+    flex-wrap: wrap;
 }
 nav a:hover {
   	background-color: #848AFF;
@@ -172,7 +170,7 @@ nav a {
     flex-direction: row;
 }
 nav a i {
-	color: orange;
+	color: white;
 	margin-right: 1.5rem;
 	width: 2rem;
 }
@@ -425,9 +423,9 @@ justify-content: space-between;
   margin-bottom: 0.6rem;
 }
 
-/********************/
+/**************************/
 /** Page editerEntreprise**/
-/********************/
+/**************************/
 
 /*.editionEntreprise .editer {
     background: #D2D8FE;
@@ -467,3 +465,31 @@ justify-content: space-between;
 .editionEntreprise h1 {
     text-align: center;
 }
+
+/**************************/
+/** Page ficheEntreprise***/
+/**************************/
+.ficheEntreprise{
+  display: flex;
+  flex-direction: column;
+}
+.ficheEntreprise .adrEntreprise{
+  display: flex;
+  flex-direction: column;
+}
+.ficheEntreprise .moneyEntreprise{
+  display: flex;
+  justify-content: space-around;
+}
+.ficheEntreprise > p:last-child{
+  align-self: center;
+}
+.ficheEntreprise .moneyEntreprise p:first-child{
+  margin-right: 5rem;
+}
+.ficheEntreprise p{
+  margin-bottom: 0.1rem;
+}
+/**************************/
+/** Page ficheEtudiant***/
+/**************************/

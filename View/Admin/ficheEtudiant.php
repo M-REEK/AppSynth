@@ -1,11 +1,8 @@
 
 <main>
   <section>
-    <h1>Fiche etudiant</h1>
-      <p>Civilité : <?= $etudiant['civilite'] ?></p>
-      <p>Nom: <?= $etudiant['nom'] ?></p>
+    <h1>Fiche etudiant de  <span><?= $etudiant['prenom'] ?> <?= $etudiant['nom'] ?></span> </h1>
       <p>n°etudant: <?= $etudiant['login'] ?></p>
-      <p>Prenom: <?= $etudiant['prenom'] ?></p>
       <p>Date de naissance <?= $etudiant['dateDeNaissance'] ?></p>
       <p>Adresse: <?= $etudiant['adresse'] ?></p>
       <p>Code postal: <?= $etudiant['code_postal'] ?></p>

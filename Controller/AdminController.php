@@ -3,6 +3,7 @@ namespace AppliSynth\Controller;
 
 use AppliSynth\Core\Manager;
 use AppliSynth\Core\Controller;
+use \Spipu\Html2Pdf\Html2Pdf;
 
 class AdminController extends Controller {
 
@@ -25,6 +26,12 @@ class AdminController extends Controller {
         $req = $manager->dbConnect();
         $allEtudiants = $req->query('SELECT * FROM table_etudiant');
         $this->render('etudiants.php', 'Etudiants', compact('allEtudiants'));
+    }
+    public  function facturationPage() {
+        $manager = new Manager();
+        $req = $manager->dbConnect();
+        $allFacture = $req->query('SELECT * FROM table_convention WHERE date_facture not like "null"');
+        $this->render('facturation.php', 'Factures', compact('allFacture'));
     }
 
     public function newConventionPage() {
@@ -214,6 +221,10 @@ class AdminController extends Controller {
     }
 
     public function editerEntreprisePage() {
+<<<<<<< HEAD
+=======
+        $title = "Edition entreprise";
+>>>>>>> 9ee5a9b5c34c40f5ce0126a36c565f662498f134
         $manager = new Manager();
         $req = $manager->dbConnect();
         if(!empty($_POST))
@@ -295,6 +306,43 @@ class AdminController extends Controller {
         $entreprise = $req->execute([$_GET['id']]);
         $entreprise = $req->fetch();
         $this->render('editerEntreprise.php', 'Editer entreprise', compact('entreprise'));
+<<<<<<< HEAD
     }
 
 }
+=======
+    }
+
+
+    public function editerEtudiantPage() {
+        $title = "Edition etudiant";
+        $manager = new Manager();
+        $req = $manager->dbConnect();
+        $req = $req->prepare('SELECT * FROM table_etudiant WHERE id_etudiant = ?');
+        $etudiant = $req->execute([$_GET['id']]);
+        $etudiant = $req->fetch();
+        $this->render('editerEtudiant.php', 'Editer etudiant', compact('etudiant'));
+    }
+
+    public function conventionPDF() {
+        $manager = new Manager();
+        $req = $manager->dbConnect();
+        $req = $req->prepare('SELECT * FROM table_convention tcn, table_client tcl WHERE tcn.id_convention = ? AND tcn.id_client = tcl.id_client ORDER BY id_convention ASC');
+        $data = $req->execute([$_GET['id']]);
+        $data = $req->fetch();
+        try {
+            ob_start();
+            require 'View/Layout/conventionpdf.php';
+            $content = ob_get_clean();
+            $html2pdf = new Html2Pdf('P', 'A4', 'fr');
+            $html2pdf->writeHTML($content);
+            $html2pdf->output();
+        } catch (Html2PdfException $e) {
+            $html2pdf->clean();
+            $formatter = new ExceptionFormatter($e);
+            echo $formatter->getHtmlMessage();
+        }
+    }
+}
+
+>>>>>>> 9ee5a9b5c34c40f5ce0126a36c565f662498f134

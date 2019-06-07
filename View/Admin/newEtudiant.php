@@ -3,7 +3,7 @@
 		<h1>Nouvel étudiant</h1>
 		<div id=form>
 			<form method="POST" action="">
-				<p><label>Civilite</label> :<label>Mr</label>  <input type="checkbox" checked name="civilite[]" value=M /><label>Mme</label>  <input type="checkbox" name="civilite[]" value=F /></p>
+				<p><label>Civilite</label> :<label>Mr</label>  <input type="radio" checked name="civilite[]" value=M /><label>Mme</label>  <input type="radio" name="civilite[]" value=F /></p>
 				<p><label for="nom_etu">Nom</label> : <input type="text" id="nom_etu" name="nom_etu" /></p>
 				<p><label for="prenom_etu">Prenom</label> : <input type="text" id="prenom_etu" name="prenom_etu" /></p>
   				<p><label for="num_etu">Numéro Etudiant</label> : <input type="text" id="num_etu" name="num_etu" /></p>
