@@ -73,5 +73,10 @@
 		"path": "/conventionPDF",
 		"run": "conventionPDF",
 		"from": "AdminController"
+	},
+	"facturationPage": {
+		"path": "/facturation",
+		"run": "facturationPage",
+		"from": "AdminController"
 	}
 }

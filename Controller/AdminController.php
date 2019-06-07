@@ -26,6 +26,12 @@ class AdminController extends Controller {
         $allEtudiants = $req->query('SELECT * FROM table_etudiant');
         $this->render('etudiants.php', 'Etudiants', compact('allEtudiants'));
     }
+    public  function facturationPage() {
+        $manager = new Manager();
+        $req = $manager->dbConnect();
+        $allFacture = $req->query('SELECT * FROM table_convention WHERE date_facture not like "null"');
+        $this->render('facturation.php', 'Factures', compact('allFacture'));
+    }
 
     public function newConventionPage() {
         $manager = new Manager();
