@@ -137,7 +137,7 @@ class AdminController extends Controller {
     		    else
                 {
                  //Insertion dans la BDD
-                    $req_ent = $manager->dbConnect()->prepare('INSERT INTO table_client (`nom_societe`,`num_siren`,`email`,`adresse`,`code postal`,`indice_confiance`,`telephone`) VALUES (?,?,?,?,?,?,?)');
+                    $req_ent = $manager->dbConnect()->prepare('INSERT INTO table_client (`nom_societe`,`num_siren`,`email`,`adresse`,`code_postal`,`indice_confiance`,`telephone`) VALUES (?,?,?,?,?,?,?)');
                     $req_ent->execute(array($nom,$siren,$email,$adresse,$CP,$confiance,$telephone));   
                 }	   	
 	        }
@@ -226,7 +226,7 @@ class AdminController extends Controller {
                 else
                 {
                     //Insertion dans la BDD
-                    $req_etu = $manager->dbConnect()->prepare('INSERT INTO table_etudiant (`civilite`,`nom`,`prenom`,`dateDeNaissance`,`adresse`,`code_postal`,`telephone_portable`,`email`,`login`) VALUES (?,?,?,?,?,?,?,?,?)');
+                    $req_etu = $manager->dbConnect()->prepare('INSERT INTO table_etudiant (`civilite`,`nom`,`prenom`,`dateDeNaissance`,`adresse`,`code_postal`,`telephone`,`email`,`login`) VALUES (?,?,?,?,?,?,?,?,?)');
                     $req_etu->execute(array($civilite,$nom,$prenom,$DOB,$adresse,$CP,$telephone,$email,$numEtu));
                 }  
 
