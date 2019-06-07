@@ -9,7 +9,6 @@
                     <div>Entreprises : <?= $c['nom_societe'] ?></div>
                     <div>Etudiant(s) :
                       <div class="listeEtu">
-
                           <?php
                               $names = $req->query('SELECT nom, prenom
                                                   FROM table_etudiant te, table_convention_etudiant tce
@@ -40,10 +39,8 @@
                   </div>
                 </div>
                 <div class="pics">
-                  <a href="#" title="Editer"><i class="fas fa-pencil-alt"></i></a> <a href="#" title="Visualiser"><i class="far fa-eye"></i></a>
+                  <a href="#" title="Editer"><i class="fas fa-pencil-alt"></i></a> <a href="conventionPDF?id=<?= $c['id_convention'] ?>" title="Visualiser"><i class="far fa-eye"></i></a>
                 </div>
-
-
             </div>
         <?php endforeach; ?>
     </section>

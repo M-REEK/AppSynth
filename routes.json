@@ -1,58 +1,72 @@
 {
-    "home": {
-        "path": "/accueil",
-        "run": "homePage",
-        "from": "PublicController"
-    },
-    "connexion": {
-        "path": "/connexion",
-        "run": "connexionPage",
-        "from": "AuthController"
-    },
-    "deconnexion": {
-        "path": "/deconnexion",
-        "run": "deconnexion",
-        "from": "AuthController"
-    },
-    "entreprises": {
-        "path": "/entreprises",
-        "run": "entreprisesPage",
-        "from": "AdminController"
-    },
-    "etudiants": {
-        "path": "/etudiants",
-        "run": "etudiantsPage",
-        "from": "AdminController"
-    },
-    "newEntreprise": {
-        "path": "/nouvelle-entreprise",
-        "run": "newEntreprisePage",
-        "from": "AdminController"
-    },
-    "newConvention": {
-        "path": "/nouvelle-convention",
-        "run": "newConventionPage",
-        "from": "AdminController"
-    },
-    "parametre": {
-        "path": "/parametre",
-        "run": "parametrePage",
-        "from": "AdminController"
-    },
-    "newEtudiant": {
-        "path": "/nouvel-etudiant",
-        "run": "newEtudiantPage",
-        "from": "AdminController"
-    },
-    "conventions": {
-        "path": "/conventions",
-        "run": "conventionsPage",
-        "from": "AdminController"
-    },
-
-    "editerEntreprisePage": {
+	"home": {
+		"path": "/accueil",
+		"run": "homePage",
+		"from": "PublicController"
+	},
+	"connexion": {
+		"path": "/connexion",
+		"run": "connexionPage",
+		"from": "AuthController"
+	},
+	"deconnexion": {
+		"path": "/deconnexion",
+		"run": "deconnexion",
+		"from": "AuthController"
+	},
+	"entreprises": {
+		"path": "/entreprises",
+		"run": "entreprisesPage",
+		"from": "AdminController"
+	},
+	"etudiants": {
+		"path": "/etudiants",
+		"run": "etudiantsPage",
+		"from": "AdminController"
+	},
+	"newEntreprise": {
+		"path": "/nouvelle-entreprise",
+		"run": "newEntreprisePage",
+		"from": "AdminController"
+	},
+	"newConvention": {
+		"path": "/nouvelle-convention",
+		"run": "newConventionPage",
+		"from": "AdminController"
+	},
+	"parametre": {
+		"path": "/parametre",
+		"run": "parametrePage",
+		"from": "AdminController"
+	},
+	"newEtudiant": {
+		"path": "/nouvel-etudiant",
+		"run": "newEtudiantPage",
+		"from": "AdminController"
+	},
+	"conventions": {
+		"path": "/conventions",
+		"run": "conventionsPage",
+		"from": "AdminController"
+	},
+	"ficheEtudiant": {
+		"path": "/ficheEtudiant",
+		"run": "ficheEtudiantPage",
+		"from": "AdminController"
+	},
+	"ficheEntreprise": {
+		"path": "/ficheEntreprise",
+		"run": "ficheEntreprisePage",
+		"from": "AdminController"
+	},
+	"editerEntreprisePage": {
         "path": "/editerEntreprise",
         "run": "editerEntreprisePage",
         "from": "AdminController"
-    }
+	},
+	"conventionPDF": {
+		"path": "/conventionPDF",
+		"run": "conventionPDF",
+		"from": "AdminController"
+	}
 }
