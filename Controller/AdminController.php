@@ -154,9 +154,15 @@ class AdminController extends Controller {
             }
             if(!empty(trim($_POST['modif_mail'])))
             {
+                if(!filter_var(trim($_POST['modif_mail']), FILTER_VALIDATE_EMAIL))
+                {
+                    $_SESSION['alert'] = "<div class='alert error'>Veuillez taper un e-mail valide</div>";
+                }
+                    
                 $mail = trim($_POST['modif_mail']);
                 $req_main = $manager->dbConnect()->prepare('UPDATE table_utilisateur_admin SET mail = ? WHERE login = ?');
                 $req_main->execute(array($mail, $user['login']));
+                
             }
         }
         $this->render('parametre.php', 'Paramètres', compact('user'));
@@ -208,8 +214,23 @@ class AdminController extends Controller {
     }
 
     public function editerEntreprisePage() {
+        $title = "Edition etudiant";
         $manager = new Manager();
-        $this->render('editerEntreprise.php', 'Editer etudiant');
+        $req = $manager->dbConnect();
+        $req = $req->prepare('SELECT * FROM table_client WHERE id_client = ?');
+        $entreprise = $req->execute([$_GET['id']]);
+        $entreprise = $req->fetch();
+        $this->render('editerEntreprise.php', 'Editer etudiant', compact('entreprise'));
+    }
+
+    public function ficheEtudiantPage() {
+        $title = "ficheEtudiant";
+        $manager = new Manager();
+        $req = $manager->dbConnect();
+        $req = $req->prepare('SELECT * FROM table_etudiant WHERE id_etudiant = ?');
+        $etudiant = $req->execute([$_GET['id']]);
+        $etudiant = $req->fetch();
+        $this->render('ficheEtudiant.php', 'Fiche Etudiant', compact('etudiant'));
     }
 
 }
