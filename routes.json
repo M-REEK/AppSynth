@@ -72,7 +72,7 @@
 	"conventionPDF": {
 		"path": "/conventionPDF",
 		"run": "conventionPDF",
-		"from": "AdminController"
+		"from": "PublicController"
 	},
 	"facturationPage": {
 		"path": "/facturation",

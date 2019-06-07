@@ -1,6 +1,8 @@
 <?php 
 namespace AppliSynth\Core;
 
+use AppliSynth\Controller\AuthController;
+
 class Controller {
 
     private $viewPaths = [
@@ -17,7 +19,9 @@ class Controller {
             } else {
                 require $this->viewPaths['Layout'] . 'header.php';
             }
-            if ($view != 'connexion.php') require $this->viewPaths['Layout'] . 'menu.php';
+            if (AuthController::isAdmin()) {
+                if ($view != 'connexion.php') require $this->viewPaths['Layout'] . 'menu.php';
+            }          
             require $viewToDisplay;
             require $this->viewPaths['Layout'] . 'footer.php';
         }

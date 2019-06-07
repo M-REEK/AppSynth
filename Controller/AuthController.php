@@ -54,7 +54,9 @@ class AuthController extends Controller {
     }
 
     public static function isAdmin() {
-        if ($_SESSION['member']['role'] == 'admin') return true;
+        if (isset($_SESSION['member'])) {
+            if ($_SESSION['member']['role'] == 'admin') return true;
+        }
         return false;
     }
 
