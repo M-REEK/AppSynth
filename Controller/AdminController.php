@@ -334,3 +334,4 @@ class AdminController extends Controller {
             echo $formatter->getHtmlMessage();
         }
     }
+}
