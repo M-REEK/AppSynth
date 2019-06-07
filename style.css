@@ -155,9 +155,7 @@ footer p {
 nav {
     background-color: #A5AEFF;
     display: flex;
-    flex-direction: column;
-    position: fixed;
-    top:20%;
+    flex-wrap: wrap;
 }
 nav a:hover {
   	background-color: #848AFF;
@@ -172,7 +170,7 @@ nav a {
     flex-direction: row;
 }
 nav a i {
-	color: orange;
+	color: white;
 	margin-right: 1.5rem;
 	width: 2rem;
 }
