@@ -492,6 +492,17 @@ justify-content: space-between;
 .ficheEntreprise p{
   margin-bottom: 0.1rem;
 }
-/**************************/
-/** Page ficheEtudiant***/
-/**************************/
+/****************************/
+/***** page Facturation *****/
+/****************************/
+.facturation{
+  display: flex;
+  flex-direction: column;
+}
+.facturation .facture{
+  border-style: solid;
+  border-radius: 1rem;
+  border-width: 0.05rem;
+  margin:2rem;
+  padding: 1rem;
+}
