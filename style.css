@@ -424,3 +424,46 @@ justify-content: space-between;
 .infos div{
   margin-bottom: 0.6rem;
 }
+
+/********************/
+/** Page editerEntreprise**/
+/********************/
+
+/*.editionEntreprise .editer {
+    background: #D2D8FE;
+    display: flex;
+    margin-bottom: 1.5rem;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-radius: 1rem;
+    border-style: solid;
+    border-width: 0.05rem;
+    text-align: center;
+}*/
+
+.editionEntreprise .editer .form label {
+    margin-left: 2rem;
+}
+
+.editionEntreprise .editer .form {
+    background: #D2D8FE;
+    border-width: 0.05rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-style: solid;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+.editionEntreprise h1 {
+    text-align: center;
+}
