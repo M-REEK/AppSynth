@@ -39,7 +39,7 @@ class AdminController extends Controller {
         $req = $manager->dbConnect();
         $allEntreprises = $req->query('SELECT * FROM table_client ORDER BY nom_societe');
         $allEtudiants = $req->query('SELECT * FROM table_etudiant ORDER BY nom');
- 		if (!empty($_POST)) 
+ 		if (!empty($_POST))
          {
             if (!empty(trim($_POST['date_debut'])) && !empty(trim($_POST['date_fin'])) && !empty(trim($_POST['montant'])) && !empty(trim($_POST['sujet'])))
             {
@@ -64,8 +64,8 @@ class AdminController extends Controller {
 		                  $req_etu =$req->prepare('INSERT INTO table_convention_etudiant (`id_convention`,`id_etudiant`) VALUES (?,?)');
 		                 $req_etu->execute(array($data[0],$etudiant));
 		                }
-                	
-                
+
+
             }
 
             else
@@ -103,7 +103,7 @@ class AdminController extends Controller {
          {
             if (!empty(trim($_POST['num_ent'])) && !empty(trim($_POST['nom_ent'])) && !empty(trim($_POST['num_siren_ent'])) && !empty(trim($_POST['adresse_ent'])) && !empty(trim($_POST['CP_ent'])) && !empty(trim($_POST['telephone_ent'])) && !empty(trim($_POST['email_ent'])))
             {
-	         //Recuperation des données 
+	         //Recuperation des données
                 $nom = trim($_POST['nom_ent']);
                 $siren = trim($_POST['num_siren_ent']);
                 $numEnt = trim($_POST['num_ent']);
@@ -113,11 +113,11 @@ class AdminController extends Controller {
                 $email = trim($_POST['email_ent']);
                 foreach($_POST['indice_confiance'] as $valeur){$confiance=$valeur;}
 
-                //Verification des données 
+                //Verification des données
     		    if(!preg_match("/[0-9]{9}/", $siren))
-    		    {$_SESSION['alert'] = "<div class='alert error'>Champs siren incorrect (9 chiffres)</div>";}	
+    		    {$_SESSION['alert'] = "<div class='alert error'>Champs siren incorrect (9 chiffres)</div>";}
     		    if(!preg_match("/[0-9]*/", $CP))
-    		    {$_SESSION['alert'] = "<div class='alert error'>Champs code postal incorrect</div>";}	
+    		    {$_SESSION['alert'] = "<div class='alert error'>Champs code postal incorrect</div>";}
                 if(!filter_var($telephone, FILTER_SANITIZE_NUMBER_INT))
                 {$_SESSION['alert'] = "<div class='alert error'>Champs numero incorrect</div>";}
                 if(!filter_var(trim($_POST['email_ent']), FILTER_VALIDATE_EMAIL))
@@ -132,7 +132,7 @@ class AdminController extends Controller {
                  $_SESSION['alert'] = "<div class='alert error'>Veuillez remplir tous les champs</div>";
             }
     }
-	    
+
         $this->render('newEntreprise.php', 'Nouvelle entreprise');
     }
 
@@ -165,11 +165,11 @@ class AdminController extends Controller {
                 {
                     $_SESSION['alert'] = "<div class='alert error'>Veuillez taper un e-mail valide</div>";
                 }
-                    
+
                 $mail = trim($_POST['modif_mail']);
                 $req_main = $manager->dbConnect()->prepare('UPDATE table_utilisateur_admin SET mail = ? WHERE login = ?');
                 $req_main->execute(array($mail, $user['login']));
-                
+
             }
         }
         $this->render('parametre.php', 'Paramètres', compact('user'));
@@ -193,9 +193,9 @@ class AdminController extends Controller {
                 foreach($_POST['civilite'] as $valeur)
                 {$civilite=$valeur;}
 
-                //Verification des données  
+                //Verification des données
                 if(!preg_match("/[0-9]*/", $CP))
-                {$_SESSION['alert'] = "<div class='alert error'>Champs code postal incorrect</div>";}   
+                {$_SESSION['alert'] = "<div class='alert error'>Champs code postal incorrect</div>";}
                 if(!filter_var($telephone, FILTER_SANITIZE_NUMBER_INT))
                 {$_SESSION['alert'] = "<div class='alert error'>Champs numero incorrect</div>";}
                 if(!filter_var(trim($_POST['email_etu']), FILTER_VALIDATE_EMAIL))
@@ -243,11 +243,11 @@ class AdminController extends Controller {
                 if(!filter_var(trim($_POST['modif_email']), FILTER_VALIDATE_EMAIL))
                 {
                     $_SESSION['alert'] = "<div class='alert error'>Veuillez taper un e-mail valide</div>";
-                }   
+                }
                 $mail = trim($_POST['modif_email']);
                 $req_mail = $manager->dbConnect()->prepare('UPDATE table_client SET email = ? WHERE id_client = ?');
                 $req_mail->execute(array($mail, $_GET['id']));
-                
+
             }
             if(!empty(trim($_POST['modif_adresse'])))
             {
