@@ -1,6 +1,5 @@
 <main>
     <section class="facturation">
-        <p><a href="nouveauReglement">Ajouter un reglement <i class="fas fa-plus-circle"></i></a></p>
         <?php foreach ($allFacture as $fac): ?>
             <div class="facture">
                 <div>
