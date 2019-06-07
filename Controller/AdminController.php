@@ -39,7 +39,7 @@ class AdminController extends Controller {
         $req = $manager->dbConnect();
         $allEntreprises = $req->query('SELECT * FROM table_client ORDER BY nom_societe');
         $allEtudiants = $req->query('SELECT * FROM table_etudiant ORDER BY nom');
- 		if (!empty($_POST)) 
+ 		if (!empty($_POST))
          {
             if (!empty(trim($_POST['date_debut'])) && !empty(trim($_POST['date_fin'])) && !empty(trim($_POST['montant'])) && !empty(trim($_POST['sujet'])))
             {
@@ -64,8 +64,8 @@ class AdminController extends Controller {
 		                  $req_etu =$req->prepare('INSERT INTO table_convention_etudiant (`id_convention`,`id_etudiant`) VALUES (?,?)');
 		                 $req_etu->execute(array($data[0],$etudiant));
 		                }
-                	
-                
+
+
             }
 
             else
@@ -103,7 +103,7 @@ class AdminController extends Controller {
          {
             if (!empty(trim($_POST['num_ent'])) && !empty(trim($_POST['nom_ent'])) && !empty(trim($_POST['num_siren_ent'])) && !empty(trim($_POST['adresse_ent'])) && !empty(trim($_POST['CP_ent'])) && !empty(trim($_POST['telephone_ent'])) && !empty(trim($_POST['email_ent'])))
             {
-	         //Recuperation des données 
+	         //Recuperation des données
                 $nom = trim($_POST['nom_ent']);
                 $siren = trim($_POST['num_siren_ent']);
                 $numEnt = trim($_POST['num_ent']);
@@ -113,11 +113,11 @@ class AdminController extends Controller {
                 $email = trim($_POST['email_ent']);
                 foreach($_POST['indice_confiance'] as $valeur){$confiance=$valeur;}
 
-                //Verification des données 
+                //Verification des données
     		    if(!preg_match("/[0-9]{9}/", $siren))
-    		    {$_SESSION['alert'] = "<div class='alert error'>Champs siren incorrect (9 chiffres)</div>";}	
+    		    {$_SESSION['alert'] = "<div class='alert error'>Champs siren incorrect (9 chiffres)</div>";}
     		    if(!preg_match("/[0-9]*/", $CP))
-    		    {$_SESSION['alert'] = "<div class='alert error'>Champs code postal incorrect</div>";}	
+    		    {$_SESSION['alert'] = "<div class='alert error'>Champs code postal incorrect</div>";}
                 if(!filter_var($telephone, FILTER_SANITIZE_NUMBER_INT))
                 {$_SESSION['alert'] = "<div class='alert error'>Champs numero incorrect</div>";}
                 if(!filter_var(trim($_POST['email_ent']), FILTER_VALIDATE_EMAIL))
@@ -132,7 +132,7 @@ class AdminController extends Controller {
                  $_SESSION['alert'] = "<div class='alert error'>Veuillez remplir tous les champs</div>";
             }
     }
-	    
+
         $this->render('newEntreprise.php', 'Nouvelle entreprise');
     }
 
@@ -165,11 +165,11 @@ class AdminController extends Controller {
                 {
                     $_SESSION['alert'] = "<div class='alert error'>Veuillez taper un e-mail valide</div>";
                 }
-                    
+
                 $mail = trim($_POST['modif_mail']);
                 $req_main = $manager->dbConnect()->prepare('UPDATE table_utilisateur_admin SET mail = ? WHERE login = ?');
                 $req_main->execute(array($mail, $user['login']));
-                
+
             }
         }
         $this->render('parametre.php', 'Paramètres', compact('user'));
@@ -193,10 +193,9 @@ class AdminController extends Controller {
                 foreach($_POST['civilite'] as $valeur)
                 {$civilite=$valeur;}
 
-                $ERREUR=0;
-                //Verification des données  
+
                 if(!preg_match("/[0-9]*/", $CP))
-                {$_SESSION['alert'] = "<div class='alert error'>Champs code postal incorrect</div>";}   
+                {$_SESSION['alert'] = "<div class='alert error'>Champs code postal incorrect</div>";}
                 if(!filter_var($telephone, FILTER_SANITIZE_NUMBER_INT))
                 {$_SESSION['alert'] = "<div class='alert error'>Champs numero incorrect</div>";}
                 if(!filter_var(trim($_POST['email_etu']), FILTER_VALIDATE_EMAIL))
@@ -271,12 +270,86 @@ class AdminController extends Controller {
         $title = "Edition entreprise";
         $manager = new Manager();
         $req = $manager->dbConnect();
+        if(!empty($_POST))
+        {
+            if(!empty(trim($_POST['modif_nom'])))
+            {
+                $nom = trim($_POST['modif_nom']);
+                $req_nom = $manager->dbConnect()->prepare('UPDATE table_client SET nom_societe = ? WHERE id_client = ?');
+                $req_nom->execute(array($nom, $_GET['id']));
+            }
+            if(!empty(trim($_POST['modif_num'])))
+            {
+                $num = trim($_POST['modif_num']);
+                $req_mdp = $manager->dbConnect()->prepare('UPDATE table_client SET num_siren = ? WHERE id_client = ?');
+                $req_mdp->execute(array($mdp, $_GET['id']));
+            }
+            if(!empty(trim($_POST['modif_email'])))
+            {
+                if(!filter_var(trim($_POST['modif_email']), FILTER_VALIDATE_EMAIL))
+                {
+                    $_SESSION['alert'] = "<div class='alert error'>Veuillez taper un e-mail valide</div>";
+                }
+                $mail = trim($_POST['modif_email']);
+                $req_mail = $manager->dbConnect()->prepare('UPDATE table_client SET email = ? WHERE id_client = ?');
+                $req_mail->execute(array($mail, $_GET['id']));
+
+            }
+            if(!empty(trim($_POST['modif_adresse'])))
+            {
+                $adresse = trim($_POST['modif_adresse']);
+                $req_adresse = $manager->dbConnect()->prepare('UPDATE table_client SET adresse = ? WHERE id_client = ?');
+                $req_adresse->execute(array($adresse, $_GET['id']));
+            }
+            if(!empty(trim($_POST['modif_cp'])))
+            {
+                $cp = trim($_POST['modif_cp']);
+                $req_cp = $manager->dbConnect()->prepare('UPDATE table_client SET code_postal = ? WHERE id_client = ?');
+                $req_cp->execute(array($cp, $_GET['id']));
+            }
+            if(!empty(trim($_POST['modif_indice_confiance'])))
+            {
+                $indice_confiance = trim($_POST['modif_indice_confiance']);
+                $req_indice = $manager->dbConnect()->prepare('UPDATE table_client SET indice_confiance = ? WHERE id_client = ?');
+                $req_indice->execute(array($indice_confiance, $_GET['id']));
+            }
+            if(!empty(trim($_POST['modif_tel'])))
+            {
+                $tel = trim($_POST['modif_tel']);
+                $req_tel = $manager->dbConnect()->prepare('UPDATE table_client SET telephone = ? WHERE id_client = ?');
+                $req_tel->execute(array($tel, $_GET['id']));
+            }
+            if(!empty(trim($_POST['modif_nb_contrat'])))
+            {
+                $nb_contrat = trim($_POST['modif_nb_contrat']);
+                $req_nb_contrat = $manager->dbConnect()->prepare('UPDATE table_client SET nb_contrats = ? WHERE id_client = ?');
+                $req_nb_contrat->execute(array($nb_contrat, $_GET['id']));
+            }
+            if(!empty(trim($_POST['modif_ar'])))
+            {
+                $argent_regle = trim($_POST['modif_ar']);
+                $req_argent_regle = $manager->dbConnect()->prepare('UPDATE table_client SET argent_regle = ? WHERE id_client = ?');
+                $req_argent_regle->execute(array($argent_regle, $_GET['id']));
+            }
+            if(!empty(trim($_POST['modif_du'])))
+            {
+                $argent_du = trim($_POST['modif_du']);
+                $req_argent_du = $manager->dbConnect()->prepare('UPDATE table_client SET argent_du = ? WHERE id_client = ?');
+                $req_argent_du->execute(array($argent_du, $_GET['id']));
+            }
+            if(!empty(trim($_POST['modif_total'])))
+            {
+                $argent_total = trim($_POST['modif_total']);
+                $req_argent_total = $manager->dbConnect()->prepare('UPDATE table_client SET argent_total = ? WHERE id_client = ?');
+                $req_argent_total->execute(array($argent_total, $_GET['id']));
+            }
+        }
+        $title = "Edition entreprise";
         $req = $req->prepare('SELECT * FROM table_client WHERE id_client = ?');
         $entreprise = $req->execute([$_GET['id']]);
         $entreprise = $req->fetch();
         $this->render('editerEntreprise.php', 'Editer entreprise', compact('entreprise'));
     }
-
 
     public function editerEtudiantPage() {
         $title = "Edition etudiant";
@@ -292,7 +365,7 @@ class AdminController extends Controller {
     public function conventionPDF() {
         $manager = new Manager();
         $req = $manager->dbConnect();
-        $req = $req->prepare('SELECT * FROM table_convention tcn, table_client tcl WHERE tcn.id_convention = ? AND tcn.id_client = tcl.id_client ORDER BY id_convention ASC');
+        $req = $req->prepare('SELECT *, DATE_FORMAT(date_debut, \'%d %M %Y\') AS date_debut_fr, DATE_FORMAT(date_fin, \'%d %M %Y\') AS date_fin_fr FROM table_convention tcn, table_client tcl WHERE tcn.id_convention = ? AND tcn.id_client = tcl.id_client ORDER BY id_convention ASC');
         $data = $req->execute([$_GET['id']]);
         $data = $req->fetch();
         try {
@@ -309,4 +382,3 @@ class AdminController extends Controller {
         }
     }
 }
-

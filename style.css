@@ -1,7 +1,6 @@
 /********************/
 /***** General ******/
 /********************/
-
 *, :after, ::before {
     box-sizing: border-box;
 }
@@ -43,7 +42,6 @@ a {
 	text-decoration: none;
 	color: black;
 }
-
 /********************/
 /****** Header ******/
 /********************/
@@ -127,7 +125,6 @@ a {
 footer p {
     text-align: center;
 }
-
 /********************/
 /**** Home Page *****/
 /********************/
@@ -195,7 +192,6 @@ nav a i {
 #convention .form input {
  	margin-left: 1rem;
 }
-
 /********************/
 /** Page entreprise **/
 /********************/
@@ -205,7 +201,6 @@ nav a i {
 .Listes > p i{
   color: green;
 }
-
 .listeEntreprises{
   display: flex;
   flex-direction: column;
@@ -216,13 +211,11 @@ nav a i {
   padding: 1rem;
   background-color: #D2D8FE;
 }
-
 .listeEntreprises div:nth-child(2){
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
-
 .listeEntreprises div:nth-child(2) div i{
   border-radius: 5rem;
   height: 2rem;
@@ -232,37 +225,30 @@ nav a i {
   align-items: center;
   margin:0.5rem;
 }
-
 .listeEntreprises div:nth-child(2) div a{
   margin: 0.5rem;
 }
-
 .listeEntreprises div:nth-child(2) div a:nth-child(1) i{
   background-color: #4F61FF;
 }
 .listeEntreprises div:nth-child(2) div a:nth-child(2) i{
   background-color: #AAB2FF;
 }
-
 .listeEntreprises div:nth-child(1) p span{
   margin-right: 1rem;
 }
-
 .listeEntreprises div:nth-child(1) p:nth-child(1){
   display: inline;
   justify-content: space-between;
 }
-
 .listeEntreprises div:nth-child(1) p:nth-child(1) span:nth-child(3){
   color: red;
   margin-left: 7rem;
 }
-
 .listeEntreprises div:nth-child(2) div{
   display: flex;
   margin-left: 1rem;
 }
-
 .listeEntreprises div:nth-child(2) div:nth-child(2){
   background-color: #87FFDD;
   padding-left: 0.5rem;
@@ -270,7 +256,6 @@ nav a i {
   padding-top: 0.10rem;
   padding-bottom: 0.10rem;
 }
-
 .listeEntreprises div:nth-child(2) div:nth-child(3){
   background-color: #FF8275;
   padding-left: 0.5rem;
@@ -328,14 +313,12 @@ nav a i {
   align-items: center;
   margin:0.5rem;
 }
-
 .etudiant div:nth-child(3) a:nth-child(1) i{
   background-color: #4F61FF;
 }
 .etudiant div:nth-child(3) a:nth-child(2) i{
   background-color: #AAB2FF;
 }
-
 /********************/
 /** Page parametre**/
 /********************/
@@ -343,12 +326,10 @@ nav a i {
     display: flex;
     margin-top: 5rem;
 }
-
 .parametre h1 {
     text-align: center;
     font-size: 2em;
 }
-
 #param .form {
     background: #D2D8FE;
     display: flex;
@@ -363,11 +344,9 @@ nav a i {
     border-style: solid;
     border-width: 0.05rem;
 }
-
 #param .form label {
     margin-left: 2rem;
 }
-
 /********************/
 /* Conventions Page */
 /********************/
@@ -381,7 +360,6 @@ nav a i {
   padding: 1rem;
   background-color: #D2D8FE;
 }
-
 .infos{
 display: flex;
 flex-direction: row;
@@ -391,7 +369,6 @@ justify-content: space-between;
   display: flex;
   flex-direction: row;
 }
-
 .conventions .pics a{
   border-radius: 5rem;
   height: 2rem;
@@ -401,7 +378,6 @@ justify-content: space-between;
   align-items: center;
   margin:0.5rem;
 }
-
 .conventions .pics a:nth-child(1){
   background-color: #4F61FF;
 }
@@ -418,36 +394,15 @@ justify-content: space-between;
 .listeInfos{
   margin-left: 8rem;
 }
-
 .infos div{
   margin-bottom: 0.6rem;
 }
-
 /**************************/
 /** Page editerEntreprise**/
 /**************************/
-
-/*.editionEntreprise .editer {
-    background: #D2D8FE;
-    display: flex;
-    margin-bottom: 1.5rem;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    border-radius: 1rem;
-    border-style: solid;
-    border-width: 0.05rem;
-    text-align: center;
-}*/
-
 .editionEntreprise .editer .form label {
     margin-left: 2rem;
 }
-
 .editionEntreprise .editer .form {
     background: #D2D8FE;
     border-width: 0.05rem;
@@ -465,13 +420,13 @@ justify-content: space-between;
 .editionEntreprise h1 {
     text-align: center;
 }
-
 /**************************/
 /** Page ficheEntreprise***/
 /**************************/
 .ficheEntreprise{
   display: flex;
   flex-direction: column;
+  margin-bottom: 5rem;
 }
 .ficheEntreprise .adrEntreprise{
   display: flex;
@@ -491,5 +446,65 @@ justify-content: space-between;
   margin-bottom: 0.1rem;
 }
 /**************************/
-/** Page ficheEtudiant***/
+/** Page ficheEntreprise***/
 /**************************/
+.ficheEtudiant{
+  margin-bottom: 5rem;
+}
+
+/****************************/
+/***** page Facturation *****/
+/****************************/
+.facturation{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.facturation>p:first-child{
+  font-size: 1.5rem;
+}
+.facturation>p:first-child i{
+  color: green;
+}
+.facturation .facture{
+  border-style: solid;
+  border-radius: 1rem;
+  border-width: 0.05rem;
+  margin:2rem;
+  padding: 1rem;
+}
+.facture div p:first-child{
+  margin-top: 0.2rem;
+}
+.facture div p:last-child{
+  margin-bottom: 0.2rem;
+}
+.facture div p:last-child a i{
+  color: green;
+  margin-left: 1rem;
+}
+/**************************/
+/** Page editerEntreprise**/
+/**************************/
+
+.editionEtudiant .editer .form label {
+    margin-left: 2rem;
+}
+.editionEtudiant .editer .form {
+    background: #D2D8FE;
+    border-width: 0.05rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-style: solid;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+.editionEtudiant h1 {
+    text-align: center;
+}
