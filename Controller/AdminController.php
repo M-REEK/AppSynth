@@ -27,6 +27,12 @@ class AdminController extends Controller {
         $allEtudiants = $req->query('SELECT * FROM table_etudiant');
         $this->render('etudiants.php', 'Etudiants', compact('allEtudiants'));
     }
+    public  function facturationPage() {
+        $manager = new Manager();
+        $req = $manager->dbConnect();
+        $allFacture = $req->query('SELECT * FROM table_convention WHERE date_facture not like "null"');
+        $this->render('facturation.php', 'Factures', compact('allFacture'));
+    }
 
     public function newConventionPage() {
         $manager = new Manager();
@@ -173,7 +179,7 @@ class AdminController extends Controller {
         $manager = new Manager();
          if (!empty($_POST))
          {
-            if (!empty(trim($_POST['nom_etu'])) && !empty(trim($_POST['prenom_etu'])) && !empty(trim($_POST['num_etu'])) && !empty(trim($_POST['adresse_etu'])) && !empty(trim($_POST['CP_etu'])) && !empty(trim($_POST['telephone_etu'])) && !empty(trim($_POST['e-mail_etu'])) && !empty(trim($_POST['DOB_etu'])))
+            if (!empty(trim($_POST['nom_etu'])) && !empty(trim($_POST['prenom_etu'])) && !empty(trim($_POST['num_etu'])) && !empty(trim($_POST['adresse_etu'])) && !empty(trim($_POST['CP_etu'])) && !empty(trim($_POST['telephone_etu'])) && !empty(trim($_POST['email_etu'])) && !empty(trim($_POST['DOB_etu'])))
             {
                 //Récupération des données
                 $nom = trim($_POST['nom_etu']);
@@ -215,13 +221,24 @@ class AdminController extends Controller {
     }
 
     public function editerEntreprisePage() {
-        $title = "Edition etudiant";
+        $title = "Edition entreprise";
         $manager = new Manager();
         $req = $manager->dbConnect();
         $req = $req->prepare('SELECT * FROM table_client WHERE id_client = ?');
         $entreprise = $req->execute([$_GET['id']]);
         $entreprise = $req->fetch();
-        $this->render('editerEntreprise.php', 'Editer etudiant', compact('entreprise'));
+        $this->render('editerEntreprise.php', 'Editer entreprise', compact('entreprise'));
+    }
+
+
+    public function editerEtudiantPage() {
+        $title = "Edition etudiant";
+        $manager = new Manager();
+        $req = $manager->dbConnect();
+        $req = $req->prepare('SELECT * FROM table_etudiant WHERE id_etudiant = ?');
+        $etudiant = $req->execute([$_GET['id']]);
+        $etudiant = $req->fetch();
+        $this->render('editerEtudiant.php', 'Editer etudiant', compact('etudiant'));
     }
 
     public function conventionPDF() {

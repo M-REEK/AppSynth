@@ -64,9 +64,19 @@
         "run": "editerEntreprisePage",
         "from": "AdminController"
 	},
+	"editerEtudiantPage": {
+        "path": "/editerEtudiant",
+        "run": "editerEtudiantPage",
+        "from": "AdminController"
+	},
 	"conventionPDF": {
 		"path": "/conventionPDF",
 		"run": "conventionPDF",
+		"from": "AdminController"
+	},
+	"facturationPage": {
+		"path": "/facturation",
+		"run": "facturationPage",
 		"from": "AdminController"
 	}
 }
