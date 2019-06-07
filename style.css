@@ -496,6 +496,14 @@ justify-content: space-between;
 .facturation{
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.facturation>p:first-child{
+  font-size: 1.5rem;
+}
+.facturation>p:first-child i{
+  color: green;
 }
 .facturation .facture{
   border-style: solid;
