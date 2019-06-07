@@ -5,7 +5,7 @@
       <p>n°etudant: <?= $etudiant['login'] ?></p>
       <p>Date de naissance <?= $etudiant['dateDeNaissance'] ?></p>
       <p>Adresse: <?= $etudiant['adresse'] ?>, <?= $etudiant['code_postal'] ?></p>
-      <p>Portable: <?= $etudiant['telephone_portable'] ?></p>
+      <p>Portable: <?= $etudiant['telephone'] ?></p>
       <p>Mail: <?= $etudiant['email'] ?></p>
     </section>
 </main>
