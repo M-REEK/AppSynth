@@ -79,9 +79,15 @@
 		"run": "facturationPage",
 		"from": "AdminController"
 	},
+<<<<<<< HEAD
 	"editerConventionPage": {
 		"path": "/editerConvention",
 		"run": "editerConvention",
+=======
+	"newReglementPage": {
+		"path": "/nouveauReglement",
+		"run": "newReglementPage",
+>>>>>>> feb9d90a3af941b37d64484b2f5251b4472a101b
 		"from": "AdminController"
 	}
 }
