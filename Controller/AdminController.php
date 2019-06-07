@@ -166,7 +166,7 @@ class AdminController extends Controller {
         $manager = new Manager();
          if (!empty($_POST))
          {
-            if (!empty(trim($_POST['nom_etu'])) && !empty(trim($_POST['prenom_etu'])) && !empty(trim($_POST['num_etu'])) && !empty(trim($_POST['adresse_etu'])) && !empty(trim($_POST['CP_etu'])) && !empty(trim($_POST['telephone_etu'])) && !empty(trim($_POST['e-mail_etu'])) && !empty(trim($_POST['DOB_etu'])))
+            if (!empty(trim($_POST['nom_etu'])) && !empty(trim($_POST['prenom_etu'])) && !empty(trim($_POST['num_etu'])) && !empty(trim($_POST['adresse_etu'])) && !empty(trim($_POST['CP_etu'])) && !empty(trim($_POST['telephone_etu'])) && !empty(trim($_POST['email_etu'])) && !empty(trim($_POST['DOB_etu'])))
             {
                 //Récupération des données
                 $nom = trim($_POST['nom_etu']);
