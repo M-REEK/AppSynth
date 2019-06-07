@@ -425,9 +425,9 @@ justify-content: space-between;
   margin-bottom: 0.6rem;
 }
 
-/********************/
+/**************************/
 /** Page editerEntreprise**/
-/********************/
+/**************************/
 
 /*.editionEntreprise .editer {
     background: #D2D8FE;
@@ -467,3 +467,31 @@ justify-content: space-between;
 .editionEntreprise h1 {
     text-align: center;
 }
+
+/**************************/
+/** Page ficheEntreprise***/
+/**************************/
+.ficheEntreprise{
+  display: flex;
+  flex-direction: column;
+}
+.ficheEntreprise .adrEntreprise{
+  display: flex;
+  flex-direction: column;
+}
+.ficheEntreprise .moneyEntreprise{
+  display: flex;
+  justify-content: space-around;
+}
+.ficheEntreprise > p:last-child{
+  align-self: center;
+}
+.ficheEntreprise .moneyEntreprise p:first-child{
+  margin-right: 5rem;
+}
+.ficheEntreprise p{
+  margin-bottom: 0.1rem;
+}
+/**************************/
+/** Page ficheEtudiant***/
+/**************************/
