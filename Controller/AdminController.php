@@ -318,7 +318,7 @@ class AdminController extends Controller {
     public function conventionPDF() {
         $manager = new Manager();
         $req = $manager->dbConnect();
-        $req = $req->prepare('SELECT * FROM table_convention tcn, table_client tcl WHERE tcn.id_convention = ? AND tcn.id_client = tcl.id_client ORDER BY id_convention ASC');
+        $req = $req->prepare('SELECT *, DATE_FORMAT(date_debut, \'%d %M %Y\') AS date_debut_fr, DATE_FORMAT(date_fin, \'%d %M %Y\') AS date_fin_fr FROM table_convention tcn, table_client tcl WHERE tcn.id_convention = ? AND tcn.id_client = tcl.id_client ORDER BY id_convention ASC');
         $data = $req->execute([$_GET['id']]);
         $data = $req->fetch();
         try {
