@@ -221,10 +221,7 @@ class AdminController extends Controller {
     }
 
     public function editerEntreprisePage() {
-<<<<<<< HEAD
-=======
         $title = "Edition entreprise";
->>>>>>> 9ee5a9b5c34c40f5ce0126a36c565f662498f134
         $manager = new Manager();
         $req = $manager->dbConnect();
         if(!empty($_POST))
@@ -306,13 +303,7 @@ class AdminController extends Controller {
         $entreprise = $req->execute([$_GET['id']]);
         $entreprise = $req->fetch();
         $this->render('editerEntreprise.php', 'Editer entreprise', compact('entreprise'));
-<<<<<<< HEAD
     }
-
-}
-=======
-    }
-
 
     public function editerEtudiantPage() {
         $title = "Edition etudiant";
@@ -344,5 +335,3 @@ class AdminController extends Controller {
         }
     }
 }
-
->>>>>>> 9ee5a9b5c34c40f5ce0126a36c565f662498f134
