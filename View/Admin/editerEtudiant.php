@@ -19,10 +19,10 @@
 						<p><span class="gauche">Code postal : <?= $etudiant['code_postal']?></span><span class="droite"><label for=>Modifier : </label><input type="text" name="modif_CP" id="modif_CP"/><button>Valider</button></span></p>
 					</div>
 					<div class="form">
-						<p><span class="gauche">Telephone : <?= $etudiant['telephone_portable']?></span><span class="droite"><label for=>Modifier : </label><input type="text" name="modif_telephone" id="modif_telephone"/><button>Valider</button></span></p>
+						<p><span class="gauche">Telephone : <?= $etudiant['telephone']?></span><span class="droite"><label for=>Modifier : </label><input type="text" name="modif_telephone" id="modif_telephone"/><button>Valider</button></span></p>
 					</div>
 					<div class="form">
-						<p><span class="gauche">E-mail : <?= $etudiant['email']?></span><span class="droite"><label for=>Modifier : </label><input type="text" name="modif_nom" id="modif_nom"/><button>Valider</button></span></p>
+						<p><span class="gauche">E-mail : <?= $etudiant['email']?></span><span class="droite"><label for=>Modifier : </label><input type="text" name="modif_email" id="modif_email"/><button>Valider</button></span></p>
 					</div>
 				</form>
 

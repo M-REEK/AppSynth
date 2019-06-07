@@ -131,8 +131,9 @@ footer p {
 .home{
     flex: 1 1 auto;
     display: flex;
-	flex-direction: column;
+	  flex-direction: column;
   	justify-content: center;
+    margin-bottom: 10rem;
 }
 .item-home {
     font-size: 1.5rem;
@@ -360,6 +361,12 @@ nav a i {
   padding: 1rem;
   background-color: #D2D8FE;
 }
+.lesConventions p {
+  font-size: 1.5rem;
+}
+.lesConventions p a i{
+  color: green;
+}
 .infos{
 display: flex;
 flex-direction: row;
@@ -507,4 +514,32 @@ justify-content: space-between;
 }
 .editionEtudiant h1 {
     text-align: center;
+}
+/*********************************/
+/***** page nouveauRèglement *****/
+/*********************************/
+.newRèglement{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 6rem;
+}
+.infoNewRèglement form div:first-child{
+  display: flex;
+  justify-content: space-around;
+}
+.infoNewRèglement .reglement{
+  display: flex;
+  flex-direction: column;
+}
+.infoNewRèglement .infoReglement{
+  display: flex;
+  flex-direction: column;
+  margin-right: 4rem;
+}
+.newRèglement .reglement>label:first-child{
+  margin-bottom: 1rem;
+}
+.separator{
+  border-right-style: double;
+  margin-right: 3rem;
 }

@@ -23,7 +23,10 @@ class AdminController extends Controller {
         $manager = new Manager();
         $req = $manager->dbConnect();
         $allEtudiants = $req->query('SELECT * FROM table_etudiant');
-        $this->render('etudiants.php', 'Etudiants', compact('allEtudiants'));
+
+
+
+        $this->render('etudiants.php', 'Etudiants', compact('allEtudiants','req'));
     }
     public  function facturationPage() {
         $manager = new Manager();
@@ -45,12 +48,14 @@ class AdminController extends Controller {
                 $date_f = trim($_POST['date_fin']);
                 $montant = trim($_POST['montant']);
                 $sujet = trim($_POST['sujet']);
+                $statut="en cours";
+                $date = date("Y-m-d");
                 foreach($_POST['listeEntreprise'] as $ent)
                 {
                    $entreprise=$ent;
                 }
-                $req_conv = $req->prepare('INSERT INTO table_convention (`id_client`,`date_debut`,`date_fin`,`montant`,`sujet`) VALUES (?,?,?,?,?)');
-                $req_conv->execute(array($entreprise,$date_d,$date_f,$montant,$sujet));
+                $req_conv = $req->prepare('INSERT INTO table_convention (`id_client`,`date_debut`,`date_fin`,`montant`,`sujet`,`statut_projet`,`date_facture`) VALUES (?,?,?,?,?,?,?)');
+                $req_conv->execute(array($entreprise,$date_d,$date_f,$montant,$sujet,$statut,$date));
 
                 $req_cherche=$req->prepare('SELECT id_convention FROM table_convention where date_debut=? and date_fin=? and id_client=? and sujet=?');
                 $data = $req_cherche->execute(array($date_d,$date_f,$entreprise,$sujet));
@@ -97,52 +102,61 @@ class AdminController extends Controller {
 
     public function newEntreprisePage() {
         $manager = new Manager();
-         if (!empty($_POST))
-         {
-            if (!empty(trim($_POST['num_ent'])) && !empty(trim($_POST['nom_ent'])) && !empty(trim($_POST['num_siren_ent'])) && !empty(trim($_POST['adresse_ent'])) && !empty(trim($_POST['CP_ent'])) && !empty(trim($_POST['telephone_ent'])) && !empty(trim($_POST['email_ent'])))
+        if (!empty($_POST))
+        {
+            if (!empty(trim($_POST['nom_ent'])) && !empty(trim($_POST['num_siren_ent'])) && !empty(trim($_POST['adresse_ent'])) && !empty(trim($_POST['CP_ent'])) && !empty(trim($_POST['telephone_ent'])) && !empty(trim($_POST['email_ent'])))
             {
 	         //Recuperation des données
                 $nom = trim($_POST['nom_ent']);
                 $siren = trim($_POST['num_siren_ent']);
-                $numEnt = trim($_POST['num_ent']);
                 $adresse = trim($_POST['adresse_ent']);
                 $CP = trim($_POST['CP_ent']);
                 $telephone = trim($_POST['telephone_ent']);
                 $email = trim($_POST['email_ent']);
                 foreach($_POST['indice_confiance'] as $valeur){$confiance=$valeur;}
-
-                //Verification des données
-    		    if(!preg_match("/[0-9]{9}/", $siren))
-    		    {$_SESSION['alert'] = "<div class='alert error'>Champs siren incorrect (9 chiffres)</div>";}
-    		    if(!preg_match("/[0-9]*/", $CP))
-    		    {$_SESSION['alert'] = "<div class='alert error'>Champs code postal incorrect</div>";}
-                if(!filter_var($telephone, FILTER_SANITIZE_NUMBER_INT))
-                {$_SESSION['alert'] = "<div class='alert error'>Champs numero incorrect</div>";}
-                if(!filter_var(trim($_POST['email_ent']), FILTER_VALIDATE_EMAIL))
-                {$_SESSION['alert'] = "<div class='alert error'>Champs email incorrect</div>";}
-
-            	//Insertion dans la BDD
-                $req_ent = $manager->dbConnect()->prepare('INSERT INTO table_client (`nom_societe`,`num_siren`,`email`,`adresse`,`code postal`,`indice_confiance`,`telephone`) VALUES (?,?,?,?,?,?,?)');
-                $req_ent->execute(array($nom,$siren,$email,$adresse,$CP,$confiance,$telephone));
-	    }
+                //Verification des données 
+    		    if((!preg_match("/[0-9]{9}/", $siren)) || (!preg_match("/[0-9]*/", $CP)) || (!filter_var($telephone, FILTER_SANITIZE_NUMBER_INT)) || (!filter_var(trim($_POST['email_ent']), FILTER_VALIDATE_EMAIL)))
+                {
+                    if(!preg_match("/[0-9]{9}/", $siren))
+                    {
+                        $_SESSION['alert'] = "<div class='alert error'>Champs siren incorrect (9 chiffres)</div>";
+                    }
+                    if(!preg_match("/[0-9]*/", $CP))
+                    {
+                        $_SESSION['alert'] = "<div class='alert error'>Champs code postal incorrect</div>";
+                    }
+                    if(!filter_var($telephone, FILTER_SANITIZE_NUMBER_INT))
+                    {
+                        $_SESSION['alert'] = "<div class='alert error'>Champs numero incorrect</div>";
+                    }
+                    if(!filter_var(trim($_POST['email_ent']), FILTER_VALIDATE_EMAIL))
+                    {
+                        $_SESSION['alert'] = "<div class='alert error'>Champs email incorrect</div>";
+                    }
+                }
+    		    else
+                {
+                 //Insertion dans la BDD
+                    $req_ent = $manager->dbConnect()->prepare('INSERT INTO table_client (`nom_societe`,`num_siren`,`email`,`adresse`,`code postal`,`indice_confiance`,`telephone`) VALUES (?,?,?,?,?,?,?)');
+                    $req_ent->execute(array($nom,$siren,$email,$adresse,$CP,$confiance,$telephone));   
+                }	   	
+	        }
             else //Si un champs non remplis
             {
                  $_SESSION['alert'] = "<div class='alert error'>Veuillez remplir tous les champs</div>";
             }
-    }
-
+        }
         $this->render('newEntreprise.php', 'Nouvelle entreprise');
     }
 
     public function parametrePage() {
         $manager = new Manager();
         $req = $manager->dbConnect();
-        if (($test = $_SESSION['member']['pseudo']) == 'admin')
-        {
-            $req = $manager->dbConnect()->prepare('SELECT * FROM table_utilisateur_admin WHERE login = ?');
-        }
-        $user = $req->execute([$test]);
+        $test = $_SESSION['member']['pseudo'];
+        $req = $manager->dbConnect()->prepare('SELECT * FROM table_utilisateur_admin WHERE login = ?');
+        $user = $req->execute(array($test));
         $user = $req->fetch();
+        
         if(!empty($_POST))
         {
             if(!empty(trim($_POST['modif_id'])))
@@ -150,10 +164,12 @@ class AdminController extends Controller {
                 $login = trim($_POST['modif_id']);
                 $req_id = $manager->dbConnect()->prepare('UPDATE table_utilisateur_admin SET login = ? WHERE login = ?');
                 $req_id->execute(array($login, $user['login']));
+                $_SESSION['member']['pseudo'] = $login;
             }
             if(!empty(trim($_POST['modif_mdp'])))
             {
                 $mdp = trim($_POST['modif_mdp']);
+                $mdp = password_hash($mdp, PASSWORD_DEFAULT);
                 $req_mdp = $manager->dbConnect()->prepare('UPDATE table_utilisateur_admin SET mdp = ? WHERE login = ?');
                 $req_mdp->execute(array($mdp, $user['login']));
             }
@@ -191,17 +207,29 @@ class AdminController extends Controller {
                 foreach($_POST['civilite'] as $valeur)
                 {$civilite=$valeur;}
 
-                //Verification des données
-                if(!preg_match("/[0-9]*/", $CP))
-                {$_SESSION['alert'] = "<div class='alert error'>Champs code postal incorrect</div>";}
-                if(!filter_var($telephone, FILTER_SANITIZE_NUMBER_INT))
-                {$_SESSION['alert'] = "<div class='alert error'>Champs numero incorrect</div>";}
-                if(!filter_var(trim($_POST['email_etu']), FILTER_VALIDATE_EMAIL))
-                {$_SESSION['alert'] = "<div class='alert error'>Champs email incorrect</div>";}
+                //Verification des données  
+                if((!preg_match("/[0-9]*/", $CP)) || (!filter_var($telephone, FILTER_SANITIZE_NUMBER_INT)) || (!filter_var(trim($_POST['email_etu']), FILTER_VALIDATE_EMAIL)))
+                {
+                    if(!preg_match("/[0-9]*/", $CP))
+                    {
+                        $_SESSION['alert'] = "<div class='alert error'>Champs code postal incorrect</div>";
+                    }
+                    if(!filter_var($telephone, FILTER_SANITIZE_NUMBER_INT))
+                    {
+                        $_SESSION['alert'] = "<div class='alert error'>Champs numero incorrect</div>";
+                    }
+                    if(!filter_var(trim($_POST['email_etu']), FILTER_VALIDATE_EMAIL))
+                    {
+                        $_SESSION['alert'] = "<div class='alert error'>Champs email incorrect</div>";
+                    }
+                } 
+                else
+                {
+                    //Insertion dans la BDD
+                    $req_etu = $manager->dbConnect()->prepare('INSERT INTO table_etudiant (`civilite`,`nom`,`prenom`,`dateDeNaissance`,`adresse`,`code_postal`,`telephone_portable`,`email`,`login`) VALUES (?,?,?,?,?,?,?,?,?)');
+                    $req_etu->execute(array($civilite,$nom,$prenom,$DOB,$adresse,$CP,$telephone,$email,$numEtu));
+                }  
 
-                //Insertion dans la BDD
-                $req_etu = $manager->dbConnect()->prepare('INSERT INTO table_etudiant (`civilite`,`nom`,`prenom`,`dateDeNaissance`,`adresse`,`code_postal`,`telephone_portable`,`email`,`login`) VALUES (?,?,?,?,?,?,?,?,?)');
-                $req_etu->execute(array($civilite,$nom,$prenom,$DOB,$adresse,$CP,$telephone,$email,$numEtu));
             }
             else //Si un des champs n'est pas remplis
             {
@@ -209,6 +237,51 @@ class AdminController extends Controller {
             }
         }
         $this->render('newEtudiant.php', 'Nouvel étudiant');
+    }
+
+        public function newReglementPage() {
+        $title = "Nouveau reglement";
+        $manager = new Manager();
+        $req = $manager->dbConnect();
+        $req2= $manager->dbConnect();
+
+        //Preparation pour afficher la page
+        $req = $req->prepare('SELECT * FROM table_convention WHERE id_convention = ?');
+        $reglement = $req->execute([$_GET['id']]);
+        $reglement = $req->fetch();
+        $req2 = $req2->prepare('SELECT * FROM table_client WHERE id_client = ?');
+        $client=$req2->execute(array($reglement['id_client']));
+        $client=$req2->fetch();
+        
+
+        //Récupération des données
+        if (!empty($_POST))
+        {
+             if (!empty(trim($_POST['montant'])))
+             {
+                $id = $reglement['id_convention'];
+                $date = date("Y-m-d");
+                $montant_regle= trim($_POST['montant']);
+                foreach($_POST['type_reglement'] as $valeur){$type=$valeur;}
+                if(empty(trim($_POST['numero_reglement']))){$numero=null;}
+                else{$numero=trim($_POST['numero_reglement']);}
+
+                //Insertion dans la BDD
+                $req_regl = $manager->dbConnect()->prepare('INSERT INTO table_reglement (`id_convention`,`date_reglement`,`montant_regle`,`mode_de_reglement`,`numero_cheque_cb`) VALUES (?,?,?,?,?)');
+                $req_regl->execute(array($id,$date,$montant_regle,$type,$numero));
+                $req_conv = $manager->dbConnect()->prepare('UPDATE table_convention SET montant_regle = ? WHERE id_convention = ?');
+                $montant=$reglement['montant_regle']+$montant_regle;
+                $req_conv->execute(array($montant, $reglement['id_convention']));
+
+            }
+            else //Si un des champs n'est pas remplis
+            {
+                $_SESSION['alert'] = "<div class='alert error'>Veuillez remplir tous les champs</div>";
+            }
+        }
+
+
+        $this->render('nouveauReglement.php', 'Nouveau reglement', compact('reglement','client'));
     }
 
     public function conventionsPage() {
@@ -307,9 +380,83 @@ class AdminController extends Controller {
         $title = "Edition etudiant";
         $manager = new Manager();
         $req = $manager->dbConnect();
+        if(!empty($_POST))
+        {
+            if(!empty(trim($_POST['modif_nom'])))
+            {
+                $nom = trim($_POST['modif_nom']);
+                $req_nom = $manager->dbConnect()->prepare('UPDATE table_etudiant SET nom = ? WHERE id_etudiant = ?');
+                $req_nom->execute(array($nom, $_GET['id']));
+            }
+            if(!empty(trim($_POST['modif_prenom'])))
+            {
+                $prenom = trim($_POST['modif_prenom']);
+                $req_prenom = $manager->dbConnect()->prepare('UPDATE table_etudiant SET prenom = ? WHERE id_etudiant = ?');
+                $req_prenom->execute(array($prenom, $_GET['id']));
+            }
+            if(!empty(trim($_POST['modif_DOB'])))
+            {
+                $dob = trim($_POST['modif_DOB']);
+                $req_dob = $manager->dbConnect()->prepare('UPDATE table_etudiant SET dateDeNaissance = ? WHERE id_etudiant = ?');
+                $req_dob->execute(array($dob, $_GET['id']));
+            }
+            if(!empty(trim($_POST['modif_adresse'])))
+            {
+                $adresse = trim($_POST['modif_adresse']);
+                $req_adresse = $manager->dbConnect()->prepare('UPDATE table_etudiant SET adresse = ? WHERE id_etudiant = ?');
+                $req_adresse->execute(array($adresse, $_GET['id']));
+            }
+            if(!empty(trim($_POST['modif_CP'])))
+            {
+                $cp = trim($_POST['modif_CP']);
+                $req_cp = $manager->dbConnect()->prepare('UPDATE table_etudiant SET code_postal = ? WHERE id_etudiant = ?');
+                $req_cp->execute(array($cp, $_GET['id']));
+            }
+            if(!empty(trim($_POST['modif_telephone'])))
+            {
+                $telephone = trim($_POST['modif_telephone']);
+                $req_telephone = $manager->dbConnect()->prepare('UPDATE table_etudiant SET telephone_portable = ? WHERE id_etudiant = ?');
+                $req_telephone->execute(array($telephone, $_GET['id']));
+            }
+            if(!empty(trim($_POST['modif_email'])))
+            {
+                $mail = trim($_POST['modif_email']);
+                $req_mail = $manager->dbConnect()->prepare('UPDATE table_etudiant SET email = ? WHERE id_etudiant = ?');
+                $req_mail->execute(array($mail, $_GET['id']));
+            }
+        }
         $req = $req->prepare('SELECT * FROM table_etudiant WHERE id_etudiant = ?');
         $etudiant = $req->execute([$_GET['id']]);
         $etudiant = $req->fetch();
         $this->render('editerEtudiant.php', 'Editer etudiant', compact('etudiant'));
+    }
+
+    public function conventionPDF() {
+        $manager = new Manager();
+        $req = $manager->dbConnect();
+        $req = $req->prepare('SELECT *, DATE_FORMAT(date_debut, \'%d %M %Y\') AS date_debut_fr, DATE_FORMAT(date_fin, \'%d %M %Y\') AS date_fin_fr FROM table_convention tcn, table_client tcl WHERE tcn.id_convention = ? AND tcn.id_client = tcl.id_client ORDER BY id_convention ASC');
+        $data = $req->execute([$_GET['id']]);
+        $data = $req->fetch();
+        try {
+            ob_start();
+            require 'View/Layout/conventionpdf.php';
+            $content = ob_get_clean();
+            $html2pdf = new Html2Pdf('P', 'A4', 'fr');
+            $html2pdf->writeHTML($content);
+            $html2pdf->output();
+        } catch (Html2PdfException $e) {
+            $html2pdf->clean();
+            $formatter = new ExceptionFormatter($e);
+            echo $formatter->getHtmlMessage();
+        }
+    }
+    
+    public function editerConvention() {
+        $manager = new Manager();
+        $req = $manager->dbConnect();
+        $req = $req->prepare('SELECT * FROM table_convention tcn, table_client tcl WHERE tcn.id_client = tcl.id_client AND tcn.id_convention = ? ORDER BY id_convention ASC');
+        $convention = $req->execute([$_GET['id']]);
+        $convention = $req->fetch();
+        $this->render('editerConvention.php', 'Editer convention', compact('convention','req'));
     }
 }

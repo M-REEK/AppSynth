@@ -8,7 +8,4 @@
     <div class="item-home">
         <a href="nouvelle-entreprise">Ajouter des entreprises<i class="fas fa-plus-circle"></i></a>
     </div>
-    <div class="item-home">
-        <a href="#">Ajouter un règlement<i class="fas fa-plus-circle"></i></a>
-    </div>
 </main>

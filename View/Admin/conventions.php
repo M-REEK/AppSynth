@@ -1,5 +1,5 @@
 <main>
-    <section>
+    <section class="lesConventions">
         <p><a href="nouvelle-convention">Ajouter une convention <i class="fas fa-plus-circle"></i></a></p>
         <?php foreach($allConventions as $c): ?>
             <div class="conventions">
@@ -39,7 +39,7 @@
                   </div>
                 </div>
                 <div class="pics">
-                  <a href="#" title="Editer"><i class="fas fa-pencil-alt"></i></a> <a href="conventionPDF?id=<?= $c['id_convention'] ?>" title="Visualiser"><i class="far fa-eye"></i></a>
+                  <a href="editerConvention?id=<?= $c['id_convention'] ?>" title="Editer"><i class="fas fa-pencil-alt"></i></a> <a href="conventionPDF?id=<?= $c['id_convention'] ?>" title="Visualiser"><i class="far fa-eye"></i></a>
                 </div>
             </div>
         <?php endforeach; ?>
