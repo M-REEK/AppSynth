@@ -508,3 +508,30 @@ justify-content: space-between;
 .editionEtudiant h1 {
     text-align: center;
 }
+/*********************************/
+/***** page nouveauRèglement *****/
+/*********************************/
+.newRèglement{
+  display: flex;
+  flex-direction: column;
+}
+.infoNewRèglement form div:first-child{
+  display: flex;
+  justify-content: space-around;
+}
+.infoNewRèglement .reglement{
+  display: flex;
+  flex-direction: column;
+}
+.infoNewRèglement .infoReglement{
+  display: flex;
+  flex-direction: column;
+  margin-right: 4rem;
+}
+.newRèglement .reglement>label:first-child{
+  margin-bottom: 1rem;
+}
+.separator{
+  border-right-style: double;
+  margin-right: 3rem;
+}
