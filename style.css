@@ -504,3 +504,14 @@ justify-content: space-between;
   margin:2rem;
   padding: 1rem;
 }
+.facture div p:first-child{
+  margin-top: 0.2rem;
+}
+.facture div p:last-child{
+  margin-bottom: 0.2rem;
+}
+
+.facture div p:last-child a i{
+  color: green;
+  margin-left: 1rem;
+}
