@@ -25,7 +25,10 @@ class AdminController extends Controller {
         $manager = new Manager();
         $req = $manager->dbConnect();
         $allEtudiants = $req->query('SELECT * FROM table_etudiant');
-        $this->render('etudiants.php', 'Etudiants', compact('allEtudiants'));
+
+
+
+        $this->render('etudiants.php', 'Etudiants', compact('allEtudiants','req'));
     }
     public  function facturationPage() {
         $manager = new Manager();
@@ -202,7 +205,7 @@ class AdminController extends Controller {
                 {$_SESSION['alert'] = "<div class='alert error'>Champs email incorrect</div>";}
 
                 //Insertion dans la BDD
-                $req_etu = $manager->dbConnect()->prepare('INSERT INTO table_etudiant (`civilite`,`nom`,`prenom`,`dateDeNaissance`,`adresse`,`code_postal`,`telephone_portable`,`email`,`login`) VALUES (?,?,?,?,?,?,?,?,?)');
+                $req_etu = $manager->dbConnect()->prepare('INSERT INTO table_etudiant (`civilite`,`nom`,`prenom`,`dateDeNaissance`,`adresse`,`code_postal`,`telephone`,`email`,`login`) VALUES (?,?,?,?,?,?,?,?,?)');
                 $req_etu->execute(array($civilite,$nom,$prenom,$DOB,$adresse,$CP,$telephone,$email,$numEtu));
                 
             }
