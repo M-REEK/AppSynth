@@ -360,6 +360,12 @@ nav a i {
   padding: 1rem;
   background-color: #D2D8FE;
 }
+.lesConventions p {
+  font-size: 1.5rem;
+}
+.lesConventions p a i{
+  color: green;
+}
 .infos{
 display: flex;
 flex-direction: row;

@@ -1,5 +1,5 @@
 <main>
-    <section>
+    <section class="lesConventions">
         <p><a href="nouvelle-convention">Ajouter une convention <i class="fas fa-plus-circle"></i></a></p>
         <?php foreach($allConventions as $c): ?>
             <div class="conventions">
