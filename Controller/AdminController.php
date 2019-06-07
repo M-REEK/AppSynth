@@ -50,12 +50,13 @@ class AdminController extends Controller {
                 $date_f = trim($_POST['date_fin']);
                 $montant = trim($_POST['montant']);
                 $sujet = trim($_POST['sujet']);
+                $statut="en cours";
                 foreach($_POST['listeEntreprise'] as $ent)
                 {
                    $entreprise=$ent;
                 }
-                $req_conv = $req->prepare('INSERT INTO table_convention (`id_client`,`date_debut`,`date_fin`,`montant`,`sujet`) VALUES (?,?,?,?,?)');
-                $req_conv->execute(array($entreprise,$date_d,$date_f,$montant,$sujet));
+                $req_conv = $req->prepare('INSERT INTO table_convention (`id_client`,`date_debut`,`date_fin`,`montant`,`sujet`,`statut_projet`) VALUES (?,?,?,?,?,?)');
+                $req_conv->execute(array($entreprise,$date_d,$date_f,$montant,$sujet,$statut));
 
                 $req_cherche=$req->prepare('SELECT id_convention FROM table_convention where date_debut=? and date_fin=? and id_client=? and sujet=?');
                 $data = $req_cherche->execute(array($date_d,$date_f,$entreprise,$sujet));
