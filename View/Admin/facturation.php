@@ -1,5 +1,6 @@
 <main>
     <section class="facturation">
+      <h1>Liste des Factures</h1>
         <?php foreach ($allFacture as $fac): ?>
             <div class="facture">
                 <div>

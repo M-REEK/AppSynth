@@ -1,5 +1,6 @@
 <main>
     <section class="Listes">
+      <h1>Liste des Clients</h1>
         <p><a href="nouvelle-entreprise">Ajouter une entreprise <i class="fas fa-plus-circle"></i></a></p>
         <?php foreach ($allEntreprises as $ent): ?>
             <div class="listeEntreprises">
