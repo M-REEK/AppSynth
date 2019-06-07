@@ -1,15 +1,5 @@
 <main class="newConvention">
-	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/black-tie/jquery-ui.css">
-	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  	<script>
-  $( function() 
-  {
-    $( "#datepicker" ).datepicker();
-    $( "#datepicker2" ).datepicker();
-  } 
-  );
-  	</script>
+
 	<h1>Nouvelle convention</h1>
 	<form method="POST" action="">
 		<p>
@@ -38,9 +28,9 @@
 			?>
 			</select>
 		</p>
-		<p><label for="date_debut">Date de début:</label> <input type="text" id="datepicker" name="date_debut"></p>
-		<p><label for="date_fin">Date de fin:</label> <input type="text" id="datepicker2" name="date_fin"></p>
-		<p><label for="montant">Montant</label> : <input type="number" name="montant" id="montant" /></p>
+		<p><label for="date_debut">Date de début:</label> <input type="date" id="date_debut" name="date_debut"></p>
+		<p><label for="date_fin">Date de fin:</label> <input type="date" id="date_fin" name="date_fin"></p>
+		<p><label for="montant">Montant</label> : <input step="0.01" type="number" name="montant" id="montant" /></p>
 		<p><label for="sujet">Sujet</label> : <input type="text" name="sujet" id="sujet" /></p>
 
 
