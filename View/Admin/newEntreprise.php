@@ -3,7 +3,6 @@
 		<h1>Nouvelle entreprise</h1>
 		<div id=form>
 			<form method="POST" action="">
-				<p><label for="num_ent">Numero Entreprise</label> : <input type="text" name="num_ent" id="num_ent" /></p>
 				<p><label for="nom_ent">Nom entreprise</label> : <input type="text" name="nom_ent" id="nom_ent" /></p>
 				<p><label for="num_siren_ent">Numéro Siren</label> : <input type="text" name="num_siren_ent" id="num_siren_ent" /></p>
 				<p><label for="email_ent">E-mail</label> : <input type="email" name="email_ent" id="email_ent" /></p>

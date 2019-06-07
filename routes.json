@@ -78,5 +78,10 @@
 		"path": "/facturation",
 		"run": "facturationPage",
 		"from": "AdminController"
+	},
+	"editerConventionPage": {
+		"path": "/editerConvention",
+		"run": "editerConvention",
+		"from": "AdminController"
 	}
 }
