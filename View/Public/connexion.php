@@ -13,6 +13,5 @@
             </div>
             <button type="submit">Connexion</button>
         </form>
-        <p><a href="#" title="Mot de passe oublié" target="_blank">Mot de passe oublié ?</a></p>
     </div>
 </main>
