@@ -78,5 +78,10 @@
 		"path": "/facturation",
 		"run": "facturationPage",
 		"from": "AdminController"
+	},
+	"newReglementPage": {
+		"path": "/nouveauReglement",
+		"run": "newReglementPage",
+		"from": "AdminController"
 	}
 }

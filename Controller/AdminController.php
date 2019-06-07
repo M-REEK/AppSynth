@@ -193,6 +193,7 @@ class AdminController extends Controller {
                 foreach($_POST['civilite'] as $valeur)
                 {$civilite=$valeur;}
 
+                $ERREUR=0;
                 //Verification des données  
                 if(!preg_match("/[0-9]*/", $CP))
                 {$_SESSION['alert'] = "<div class='alert error'>Champs code postal incorrect</div>";}   
@@ -204,6 +205,7 @@ class AdminController extends Controller {
                 //Insertion dans la BDD
                 $req_etu = $manager->dbConnect()->prepare('INSERT INTO table_etudiant (`civilite`,`nom`,`prenom`,`dateDeNaissance`,`adresse`,`code_postal`,`telephone_portable`,`email`,`login`) VALUES (?,?,?,?,?,?,?,?,?)');
                 $req_etu->execute(array($civilite,$nom,$prenom,$DOB,$adresse,$CP,$telephone,$email,$numEtu));
+                
             }
             else //Si un des champs n'est pas remplis
             {
@@ -211,6 +213,51 @@ class AdminController extends Controller {
             }
         }
         $this->render('newEtudiant.php', 'Nouvel étudiant');
+    }
+
+        public function newReglementPage() {
+        $title = "Nouveau reglement";
+        $manager = new Manager();
+        $req = $manager->dbConnect();
+        $req2= $manager->dbConnect();
+
+        //Preparation pour afficher la page
+        $req = $req->prepare('SELECT * FROM table_convention WHERE id_convention = ?');
+        $reglement = $req->execute([$_GET['id']]);
+        $reglement = $req->fetch();
+        $req2 = $req2->prepare('SELECT * FROM table_client WHERE id_client = ?');
+        $client=$req2->execute(array($reglement['id_client']));
+        $client=$req2->fetch();
+        
+
+        //Récupération des données
+        if (!empty($_POST))
+        {
+             if (!empty(trim($_POST['montant'])))
+             {
+                $id = $reglement['id_convention'];
+                $date = date("Y-m-d");
+                $montant_regle= trim($_POST['montant']);
+                foreach($_POST['type_reglement'] as $valeur){$type=$valeur;}
+                if(empty(trim($_POST['numero_reglement']))){$numero=null;}
+                else{$numero=trim($_POST['numero_reglement']);}
+
+                //Insertion dans la BDD
+                $req_regl = $manager->dbConnect()->prepare('INSERT INTO table_reglement (`id_convention`,`date_reglement`,`montant_regle`,`mode_de_reglement`,`numero_cheque_cb`) VALUES (?,?,?,?,?)');
+                $req_regl->execute(array($id,$date,$montant_regle,$type,$numero));
+                $req_conv = $manager->dbConnect()->prepare('UPDATE table_convention SET montant_regle = ? WHERE id_convention = ?');
+                $montant=$reglement['montant_regle']+$montant_regle;
+                $req_conv->execute(array($montant, $reglement['id_convention']));
+
+            }
+            else //Si un des champs n'est pas remplis
+            {
+                $_SESSION['alert'] = "<div class='alert error'>Veuillez remplir tous les champs</div>";
+            }
+        }
+
+
+        $this->render('nouveauReglement.php', 'Nouveau reglement', compact('reglement','client'));
     }
 
     public function conventionsPage() {
@@ -240,6 +287,7 @@ class AdminController extends Controller {
         $etudiant = $req->fetch();
         $this->render('editerEtudiant.php', 'Editer etudiant', compact('etudiant'));
     }
+
 
     public function conventionPDF() {
         $manager = new Manager();
