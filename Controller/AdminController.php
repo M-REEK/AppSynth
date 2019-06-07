@@ -114,7 +114,7 @@ class AdminController extends Controller {
                 $telephone = trim($_POST['telephone_ent']);
                 $email = trim($_POST['email_ent']);
                 foreach($_POST['indice_confiance'] as $valeur){$confiance=$valeur;}
-                //Verification des données 
+                //Verification des données
     		    if((!preg_match("/[0-9]{9}/", $siren)) || (!preg_match("/[0-9]*/", $CP)) || (!filter_var($telephone, FILTER_SANITIZE_NUMBER_INT)) || (!filter_var(trim($_POST['email_ent']), FILTER_VALIDATE_EMAIL)))
                 {
                     if(!preg_match("/[0-9]{9}/", $siren))
@@ -137,9 +137,9 @@ class AdminController extends Controller {
     		    else
                 {
                  //Insertion dans la BDD
-                    $req_ent = $manager->dbConnect()->prepare('INSERT INTO table_client (`nom_societe`,`num_siren`,`email`,`adresse`,`code postal`,`indice_confiance`,`telephone`) VALUES (?,?,?,?,?,?,?)');
-                    $req_ent->execute(array($nom,$siren,$email,$adresse,$CP,$confiance,$telephone));   
-                }	   	
+                    $req_ent = $manager->dbConnect()->prepare('INSERT INTO table_client (`nom_societe`,`num_siren`,`email`,`adresse`,`code_postal`,`indice_confiance`,`telephone`) VALUES (?,?,?,?,?,?,?)');
+                    $req_ent->execute(array($nom,$siren,$email,$adresse,$CP,$confiance,$telephone));
+                }
 	        }
             else //Si un champs non remplis
             {
@@ -156,7 +156,7 @@ class AdminController extends Controller {
         $req = $manager->dbConnect()->prepare('SELECT * FROM table_utilisateur_admin WHERE login = ?');
         $user = $req->execute(array($test));
         $user = $req->fetch();
-        
+
         if(!empty($_POST))
         {
             if(!empty(trim($_POST['modif_id'])))
@@ -207,7 +207,7 @@ class AdminController extends Controller {
                 foreach($_POST['civilite'] as $valeur)
                 {$civilite=$valeur;}
 
-                //Verification des données  
+                //Verification des données
                 if((!preg_match("/[0-9]*/", $CP)) || (!filter_var($telephone, FILTER_SANITIZE_NUMBER_INT)) || (!filter_var(trim($_POST['email_etu']), FILTER_VALIDATE_EMAIL)))
                 {
                     if(!preg_match("/[0-9]*/", $CP))
@@ -222,13 +222,13 @@ class AdminController extends Controller {
                     {
                         $_SESSION['alert'] = "<div class='alert error'>Champs email incorrect</div>";
                     }
-                } 
+                }
                 else
                 {
                     //Insertion dans la BDD
-                    $req_etu = $manager->dbConnect()->prepare('INSERT INTO table_etudiant (`civilite`,`nom`,`prenom`,`dateDeNaissance`,`adresse`,`code_postal`,`telephone_portable`,`email`,`login`) VALUES (?,?,?,?,?,?,?,?,?)');
+                    $req_etu = $manager->dbConnect()->prepare('INSERT INTO table_etudiant (`civilite`,`nom`,`prenom`,`dateDeNaissance`,`adresse`,`code_postal`,`telephone`,`email`,`login`) VALUES (?,?,?,?,?,?,?,?,?)');
                     $req_etu->execute(array($civilite,$nom,$prenom,$DOB,$adresse,$CP,$telephone,$email,$numEtu));
-                }  
+                }
 
             }
             else //Si un des champs n'est pas remplis
@@ -252,7 +252,7 @@ class AdminController extends Controller {
         $req2 = $req2->prepare('SELECT * FROM table_client WHERE id_client = ?');
         $client=$req2->execute(array($reglement['id_client']));
         $client=$req2->fetch();
-        
+
 
         //Récupération des données
         if (!empty($_POST))
@@ -450,7 +450,7 @@ class AdminController extends Controller {
             echo $formatter->getHtmlMessage();
         }
     }
-    
+
     public function editerConvention() {
         $manager = new Manager();
         $req = $manager->dbConnect();
