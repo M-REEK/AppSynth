@@ -1,5 +1,6 @@
 <main>
     <section class="Listes">
+      <h1>Liste des Etudiants</h1>
         <p><a href="nouvel-etudiant">Ajouter un etudiant <i class="fas fa-plus-circle"></i></a></p>
         <?php foreach ($allEtudiants as $etu): ?>
             <div class="etudiant">
@@ -10,7 +11,7 @@
                 <?php
                 $nb_conv = $req->prepare('SELECT count(id_convention) as nb_conv FROM table_convention_etudiant WHERE id_etudiant=?');
                 $nb=$nb_conv->execute(array($etu['id_etudiant']));
-                $nb=$nb_conv->fetch();       
+                $nb=$nb_conv->fetch();
                 ?>
                     <p>Nombre de Conventions: <span><?= $nb['nb_conv'] ?></span></p>
                 </div>
