@@ -214,23 +214,25 @@ class AdminController extends Controller {
     }
 
     public function editerEntreprisePage() {
-        $title = "Edition etudiant";
+        $title = "Edition entreprise";
         $manager = new Manager();
         $req = $manager->dbConnect();
         $req = $req->prepare('SELECT * FROM table_client WHERE id_client = ?');
         $entreprise = $req->execute([$_GET['id']]);
         $entreprise = $req->fetch();
-        $this->render('editerEntreprise.php', 'Editer etudiant', compact('entreprise'));
+        $this->render('editerEntreprise.php', 'Editer entreprise', compact('entreprise'));
     }
 
-    public function ficheEtudiantPage() {
-        $title = "ficheEtudiant";
+    public function editerEtudiantPage() {
+        $title = "Edition etudiant";
         $manager = new Manager();
         $req = $manager->dbConnect();
         $req = $req->prepare('SELECT * FROM table_etudiant WHERE id_etudiant = ?');
         $etudiant = $req->execute([$_GET['id']]);
         $etudiant = $req->fetch();
-        $this->render('ficheEtudiant.php', 'Fiche Etudiant', compact('etudiant'));
+        $this->render('editerEtudiant.php', 'Editer etudiant', compact('etudiant'));
     }
+
+
 
 }
