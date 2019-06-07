@@ -243,11 +243,11 @@ class AdminController extends Controller {
                 if(!filter_var(trim($_POST['modif_email']), FILTER_VALIDATE_EMAIL))
                 {
                     $_SESSION['alert'] = "<div class='alert error'>Veuillez taper un e-mail valide</div>";
-                }   
+                }
                 $mail = trim($_POST['modif_email']);
                 $req_mail = $manager->dbConnect()->prepare('UPDATE table_client SET email = ? WHERE id_client = ?');
                 $req_mail->execute(array($mail, $_GET['id']));
-                
+
             }
             if(!empty(trim($_POST['modif_adresse'])))
             {
@@ -334,8 +334,3 @@ class AdminController extends Controller {
             echo $formatter->getHtmlMessage();
         }
     }
-<<<<<<< HEAD
-}
-=======
-}
->>>>>>> a52dab25a59dafe8e3fb2200550e4c7bdde012ac
